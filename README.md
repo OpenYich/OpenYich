@@ -1,4 +1,4 @@
-# OpenYich
+# OpenYich BOM for all Spring Boot projects
 
 This project provides a pom file that you can either import into your Spring Boot Application's bom, or use as your Spring Boot Application's parent pom. 
 
