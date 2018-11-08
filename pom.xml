@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.0.RELEASE</version>
+		<relativePath />
+	</parent>
+
+	<groupId>com.github.zhycn</groupId>
+	<artifactId>openyich-parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>OpenYich Parent</name>
+	<description>OpenYich BOM for all Spring Boot projects.</description>
+	<url>https://github.com/OpenYich/OpenYich.git</url>
+
+	<licenses>
+		<license>
+			<name>Apache License, version 2.0</name>
+			<url>https://github.com/OpenYich/OpenYich/blob/master/LICENSE.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<organization>
+		<name>OpenYich</name>
+		<url>https://github.com/OpenYich</url>
+	</organization>
+
+	<developers>
+		<developer>
+			<id>zhycn</id>
+			<name>Qi Zhaohong</name>
+			<url>https://github.com/zhycn</url>
+			<organization>OpenYich</organization>
+			<organizationUrl>https://github.com/OpenYich</organizationUrl>
+		</developer>
+	</developers>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<skipTests>true</skipTests>
+	</properties>
+
+	<scm>
+		<connection>scm:git:https://github.com/OpenYich/OpenYich/</connection>
+		<url>https://github.com/OpenYich/OpenYich/</url>
+	</scm>
+
+	<modules>
+		<module>openyich-dependencies</module>
+		<module>openyich-framework</module>
+	</modules>
+
+	<profiles>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<version>2.2.1</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>2.9.1</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.5</version>
+						<executions>
+							<execution>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+
+			<distributionManagement>
+				<repository>
+					<id>oss</id>
+					<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+				</repository>
+				<snapshotRepository>
+					<id>oss</id>
+					<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+				</snapshotRepository>
+			</distributionManagement>
+		</profile>
+	</profiles>
+
+</project>
