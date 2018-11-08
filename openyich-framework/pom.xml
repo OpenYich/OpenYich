@@ -14,6 +14,7 @@
 	<artifactId>openyich-framework</artifactId>
 	<packaging>jar</packaging>
 	<name>OpenYich Framework</name>
+	<description>This project is used by the OpenYich server-side library</description>
 	<url>https://github.com/OpenYich/OpenYich/</url>
 
 	<dependencies>
