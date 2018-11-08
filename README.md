@@ -2,6 +2,10 @@
 
 This project provides a pom file that you can either import into your Spring Boot Application's bom, or use as your Spring Boot Application's parent pom. 
 
+- JDK 8+
+- Spring Boot 2.1.0.RELEASE
+- Spring Cloud Finchley.SR2
+- Spring IO Platform Cairo-SR5
 
 ## Quick Start
 
@@ -26,9 +30,19 @@ Alternatively, rather than importing the OpenYich BOM, you may prefer to use it 
 
 ```
 <parent>
-	<groupId>com.github.zhycn</groupId>
-	<artifactId>openyich-dependencies</artifactId>
-	<version>2.1.0-SNAPSHOT</version>
-	<relativePath/>
+    <groupId>com.github.zhycn</groupId>
+    <artifactId>openyich-dependencies</artifactId>
+    <version>2.1.0-SNAPSHOT</version>
+    <relativePath/>
 </parent>
+```
+
+## Overriding a version
+
+To override a property in Maven you can then declare the property in your pom’s `<properties>` section with the desired value:
+
+```
+<properties>
+    <commons-lang3.version>3.7</commons-lang3.version>
+</properties>
 ```
