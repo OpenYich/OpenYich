@@ -57,6 +57,7 @@
 	<modules>
 		<module>openyich-dependencies</module>
 		<module>openyich-framework</module>
+		<module>openyich-samples</module>
 	</modules>
 
 	<profiles>
