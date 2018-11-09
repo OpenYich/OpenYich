@@ -16,7 +16,7 @@ public abstract class OpenYich {
   private static final Logger log = LoggerFactory.getLogger(OpenYich.class);
 
   /**
-   * 执行兼容性处理方案，保障服务的高可用性。
+   * 执行容错处理方案，保障服务的高可用性。
    * 
    * @param compatible
    * @return <T> T
@@ -25,11 +25,11 @@ public abstract class OpenYich {
     try {
       return Optional.of(compatible.run());
     } catch (Exception e) {
-      log.warn("execute Compatible.first() error", e);
+      log.warn("execute Compatible.run() error", e);
       try {
         return Optional.ofNullable(compatible.failover());
       } catch (Exception ex) {
-        log.error("execute Compatible.second() error", ex);
+        log.error("execute Compatible.failover() error", ex);
         return Optional.empty();
       }
     }
