@@ -33,21 +33,21 @@ public class OpenYichProperties {
 
   public static class Async {
 
-    private int corePoolSize = 1;
+    private int corePoolSize = 8;
 
-    private int maxPoolSize = Integer.MAX_VALUE;
+    private int maxPoolSize = 16;
 
-    private int keepAliveSeconds = 60;
+    private int keepAliveSeconds = 60 * 5;
 
-    private int queueCapacity = Integer.MAX_VALUE;
+    private int queueCapacity = 200;
 
     private boolean allowCoreThreadTimeOut = false;
 
     private boolean waitForJobsToCompleteOnShutdown = false;
 
-    private int awaitTerminationSeconds = 300;
+    private int awaitTerminationSeconds = 60 * 10;
 
-    private String threadNamePrefix = "Anno-Executor";
+    private String threadNamePrefix = "Task-Executor";
 
     public int getCorePoolSize() {
       return corePoolSize;
