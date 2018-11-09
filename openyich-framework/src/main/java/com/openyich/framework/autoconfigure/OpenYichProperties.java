@@ -47,7 +47,7 @@ public class OpenYichProperties {
 
     private int awaitTerminationSeconds = 300;
 
-    private String threadNamePrefix = "OpenYich-Executor";
+    private String threadNamePrefix = "Anno-Executor";
 
     public int getCorePoolSize() {
       return corePoolSize;

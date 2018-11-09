@@ -6,6 +6,7 @@ import java.util.concurrent.Executor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
+import org.springframework.core.task.AsyncTaskExecutor;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
@@ -27,8 +28,7 @@ public class OpenYichAsyncConfigurer implements AsyncConfigurer {
     this.properties = properties;
   }
 
-  @Override
-  public Executor getAsyncExecutor() {
+  public AsyncTaskExecutor create() {
     ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
     executor.setCorePoolSize(properties.getCorePoolSize());
     executor.setMaxPoolSize(properties.getMaxPoolSize());
@@ -43,14 +43,19 @@ public class OpenYichAsyncConfigurer implements AsyncConfigurer {
   }
 
   @Override
+  public Executor getAsyncExecutor() {
+    return create();
+  }
+
+  @Override
   public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
     return new AsyncUncaughtExceptionHandler() {
-      
+
       @Override
       public void handleUncaughtException(Throwable ex, Method method, Object... params) {
         log.error("Caught async exception", ex);
       }
-      
+
     };
   }
 
