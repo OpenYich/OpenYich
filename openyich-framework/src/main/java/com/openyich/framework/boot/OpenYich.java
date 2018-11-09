@@ -23,11 +23,11 @@ public abstract class OpenYich {
    */
   public static <T> Optional<T> execute(Compatible<T> compatible) {
     try {
-      return Optional.of(compatible.first());
+      return Optional.of(compatible.run());
     } catch (Exception e) {
       log.warn("execute Compatible.first() error", e);
       try {
-        return Optional.ofNullable(compatible.second());
+        return Optional.ofNullable(compatible.failover());
       } catch (Exception ex) {
         log.error("execute Compatible.second() error", ex);
         return Optional.empty();
