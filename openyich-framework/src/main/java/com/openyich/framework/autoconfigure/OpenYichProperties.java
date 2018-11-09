@@ -11,7 +11,17 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "openyich", ignoreUnknownFields = false)
 public class OpenYichProperties {
 
+  private Async async = new Async();
+  
   private Swagger swagger = new Swagger();
+  
+  public Async getAsync() {
+    return async;
+  }
+
+  public void setAsync(Async async) {
+    this.async = async;
+  }
 
   public Swagger getSwagger() {
     return swagger;
@@ -19,6 +29,90 @@ public class OpenYichProperties {
 
   public void setSwagger(Swagger swagger) {
     this.swagger = swagger;
+  }
+
+  public static class Async {
+
+    private int corePoolSize = 1;
+
+    private int maxPoolSize = Integer.MAX_VALUE;
+
+    private int keepAliveSeconds = 60;
+
+    private int queueCapacity = Integer.MAX_VALUE;
+
+    private boolean allowCoreThreadTimeOut = false;
+
+    private boolean waitForJobsToCompleteOnShutdown = false;
+
+    private int awaitTerminationSeconds = 300;
+
+    private String threadNamePrefix = "OpenYich-Executor";
+
+    public int getCorePoolSize() {
+      return corePoolSize;
+    }
+
+    public int getMaxPoolSize() {
+      return maxPoolSize;
+    }
+
+    public int getKeepAliveSeconds() {
+      return keepAliveSeconds;
+    }
+
+    public int getQueueCapacity() {
+      return queueCapacity;
+    }
+
+    public boolean isAllowCoreThreadTimeOut() {
+      return allowCoreThreadTimeOut;
+    }
+
+    public boolean isWaitForJobsToCompleteOnShutdown() {
+      return waitForJobsToCompleteOnShutdown;
+    }
+
+    public int getAwaitTerminationSeconds() {
+      return awaitTerminationSeconds;
+    }
+
+    public String getThreadNamePrefix() {
+      return threadNamePrefix;
+    }
+
+    public void setCorePoolSize(int corePoolSize) {
+      this.corePoolSize = corePoolSize;
+    }
+
+    public void setMaxPoolSize(int maxPoolSize) {
+      this.maxPoolSize = maxPoolSize;
+    }
+
+    public void setKeepAliveSeconds(int keepAliveSeconds) {
+      this.keepAliveSeconds = keepAliveSeconds;
+    }
+
+    public void setQueueCapacity(int queueCapacity) {
+      this.queueCapacity = queueCapacity;
+    }
+
+    public void setAllowCoreThreadTimeOut(boolean allowCoreThreadTimeOut) {
+      this.allowCoreThreadTimeOut = allowCoreThreadTimeOut;
+    }
+
+    public void setWaitForJobsToCompleteOnShutdown(boolean waitForJobsToCompleteOnShutdown) {
+      this.waitForJobsToCompleteOnShutdown = waitForJobsToCompleteOnShutdown;
+    }
+
+    public void setAwaitTerminationSeconds(int awaitTerminationSeconds) {
+      this.awaitTerminationSeconds = awaitTerminationSeconds;
+    }
+
+    public void setThreadNamePrefix(String threadNamePrefix) {
+      this.threadNamePrefix = threadNamePrefix;
+    }
+
   }
 
   public static class Swagger {
