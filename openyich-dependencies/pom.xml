@@ -19,7 +19,6 @@
 	<properties>
 		<spring.cloud.version>Finchley.SR2</spring.cloud.version>
 		<spring.boot.admin.version>2.0.4</spring.boot.admin.version>
-		<springfox.version>2.9.2</springfox.version>
 		<alibaba.druid.version>1.1.10</alibaba.druid.version>
 		<alibaba.dubbo.starter.version>2.0.0</alibaba.dubbo.starter.version>
 		<alibaba.fastjson.version>1.2.51</alibaba.fastjson.version>
@@ -54,26 +53,6 @@
 				<groupId>de.codecentric</groupId>
 				<artifactId>spring-boot-admin-starter-client</artifactId>
 				<version>${spring.boot.admin.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.springfox</groupId>
-				<artifactId>springfox-swagger2</artifactId>
-				<version>${springfox.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.springfox</groupId>
-				<artifactId>springfox-swagger-ui</artifactId>
-				<version>${springfox.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.springfox</groupId>
-				<artifactId>springfox-data-rest</artifactId>
-				<version>${springfox.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.springfox</groupId>
-				<artifactId>springfox-bean-validators</artifactId>
-				<version>${springfox.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.alibaba</groupId>
