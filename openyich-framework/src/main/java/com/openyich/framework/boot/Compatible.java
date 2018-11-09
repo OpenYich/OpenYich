@@ -1,4 +1,4 @@
-package com.openyich.framework;
+package com.openyich.framework.boot;
 
 /**
  * 兼容性处理方案接口

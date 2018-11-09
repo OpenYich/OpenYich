@@ -1,4 +1,4 @@
-package com.openyich.framework.swagger;
+package com.openyich.framework.autoconfigure.swagger;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,8 +19,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.util.StopWatch;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import com.openyich.framework.OpenYichConstants;
 import com.openyich.framework.autoconfigure.OpenYichProperties;
+import com.openyich.framework.boot.OpenYichConstants;
 
 import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.schema.AlternateTypeRule;
@@ -40,8 +40,12 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @Configuration
 @ConditionalOnWebApplication
-@ConditionalOnClass({ApiInfo.class, BeanValidatorPluginsConfiguration.class, Servlet.class,
-    DispatcherServlet.class})
+@ConditionalOnClass({
+  ApiInfo.class, 
+  BeanValidatorPluginsConfiguration.class, 
+  Servlet.class,
+  DispatcherServlet.class
+})
 @Profile(OpenYichConstants.SPRING_PROFILE_SWAGGER)
 @AutoConfigureAfter(OpenYichProperties.class)
 @EnableSwagger2

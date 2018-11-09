@@ -1,4 +1,4 @@
-package com.openyich.framework.swagger;
+package com.openyich.framework.autoconfigure.swagger;
 
 import static springfox.documentation.builders.PathSelectors.regex;
 
@@ -16,6 +16,12 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spring.web.plugins.Docket;
 
+/**
+ * Customize the Springfox Docket.
+ * 
+ * @author zhycn
+ * @since 2.1.0 2018-11-09
+ */
 @Order(0)
 public class OpenYichSwaggerCustomizer implements SwaggerCustomizer {
 

@@ -1,4 +1,4 @@
-package com.openyich.framework;
+package com.openyich.framework.boot;
 
 /**
  * OpenYich constants
