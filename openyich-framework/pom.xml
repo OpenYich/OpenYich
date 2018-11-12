@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>com.github.zhycn</groupId>
 		<artifactId>openyich-parent</artifactId>
-		<version>2.1.0-SNAPSHOT</version>
+		<version>2.1.0</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
@@ -16,10 +16,6 @@
 	<name>OpenYich Framework</name>
 	<description>This project is used by the OpenYich server-side library</description>
 	<url>https://github.com/OpenYich/OpenYich/</url>
-
-	<properties>
-		<springfox.version>2.9.2</springfox.version>
-	</properties>
 
 	<dependencies>
 		<dependency>
@@ -40,6 +36,19 @@
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>${springfox.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${alibaba.fastjson.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
