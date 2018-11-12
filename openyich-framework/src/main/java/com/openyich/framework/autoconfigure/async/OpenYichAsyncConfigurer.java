@@ -2,6 +2,7 @@ package com.openyich.framework.autoconfigure.async;
 
 import java.lang.reflect.Method;
 import java.util.concurrent.Executor;
+import java.util.concurrent.ThreadPoolExecutor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,13 +39,14 @@ public class OpenYichAsyncConfigurer implements AsyncConfigurer {
     executor.setAwaitTerminationSeconds(properties.getAwaitTerminationSeconds());
     executor.setKeepAliveSeconds(properties.getKeepAliveSeconds());
     executor.setThreadNamePrefix(properties.getThreadNamePrefix());
+    executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
     executor.initialize();
     return executor;
   }
 
   @Override
   public Executor getAsyncExecutor() {
-    return create();
+    return this.create();
   }
 
   @Override

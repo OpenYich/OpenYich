@@ -12,9 +12,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class OpenYichProperties {
 
   private Async async = new Async();
-  
+
   private Swagger swagger = new Swagger();
-  
+
   public Async getAsync() {
     return async;
   }
@@ -33,21 +33,21 @@ public class OpenYichProperties {
 
   public static class Async {
 
-    private int corePoolSize = 8;
+    private int corePoolSize = 10;
 
-    private int maxPoolSize = 16;
+    private int maxPoolSize = 500;
 
     private int keepAliveSeconds = 60 * 5;
 
-    private int queueCapacity = 200;
+    private int queueCapacity = 5000;
 
     private boolean allowCoreThreadTimeOut = false;
 
     private boolean waitForJobsToCompleteOnShutdown = false;
 
-    private int awaitTerminationSeconds = 60 * 10;
+    private int awaitTerminationSeconds = 60 * 15;
 
-    private String threadNamePrefix = "Task-Executor";
+    private String threadNamePrefix = "AOY-Executor";
 
     public int getCorePoolSize() {
       return corePoolSize;
