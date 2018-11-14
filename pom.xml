@@ -13,7 +13,7 @@
 
 	<groupId>com.github.zhycn</groupId>
 	<artifactId>openyich-parent</artifactId>
-	<version>2.1.0</version>
+	<version>2.1.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>OpenYich Parent</name>
 	<description>OpenYich BOM for all Spring Boot projects</description>
@@ -43,7 +43,7 @@
 	</developers>
 
 	<properties>
-		<openyich-framework.version>2.1.0</openyich-framework.version>
+		<openyich-framework.version>2.1.1-SNAPSHOT</openyich-framework.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
@@ -51,7 +51,7 @@
 		
 		<!-- Customize the Dependencies -->
 		<spring.cloud.version>Finchley.SR2</spring.cloud.version>
-		<spring.boot.admin.version>2.0.4</spring.boot.admin.version>
+		<spring.boot.admin.version>2.1.0</spring.boot.admin.version>
 		<springfox.version>2.9.2</springfox.version>
 		<alibaba.druid.version>1.1.10</alibaba.druid.version>
 		<alibaba.dubbo.starter.version>2.0.0</alibaba.dubbo.starter.version>
