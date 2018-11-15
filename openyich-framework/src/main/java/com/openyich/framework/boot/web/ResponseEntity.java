@@ -9,7 +9,7 @@ import com.google.common.collect.Maps;
  * Represents an HTTP response entity.
  * 
  * @author zhycn
- * @since 2.1.0 2018-11-14
+ * @since 2.1.1 2018-11-14
  */
 public class ResponseEntity implements Serializable {
 
