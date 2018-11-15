@@ -43,6 +43,11 @@
 			<version>${springfox.version}</version>
 		</dependency>
 		<dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>problem-spring-web</artifactId>
+            <version>${zalando.version}</version>
+        </dependency>
+		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
