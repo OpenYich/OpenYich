@@ -12,33 +12,26 @@
 	</parent>
 
 	<artifactId>openyich-samples</artifactId>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 	<name>OpenYich Samples</name>
+	<description>This project is used by the OpenYich integration testing</description>
 	<url>https://github.com/OpenYich/OpenYich/</url>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.github.zhycn</groupId>
-			<artifactId>openyich-framework</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+	<modules>
+		<module>openyich-samples-cloud</module>
+		<module>openyich-samples-web</module>
+	</modules>
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.github.zhycn</groupId>
+				<artifactId>openyich-dependencies</artifactId>
+				<version>${openyich-framework.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 </project>
