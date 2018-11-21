@@ -14,11 +14,24 @@
 	<artifactId>openyich-samples</artifactId>
 	<packaging>pom</packaging>
 	<name>OpenYich Samples</name>
+	<description>This project is used by the OpenYich integration testing</description>
 	<url>https://github.com/OpenYich/OpenYich/</url>
 
 	<modules>
 		<module>openyich-samples-cloud</module>
 		<module>openyich-samples-web</module>
 	</modules>
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.github.zhycn</groupId>
+				<artifactId>openyich-dependencies</artifactId>
+				<version>${openyich-framework.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 </project>
