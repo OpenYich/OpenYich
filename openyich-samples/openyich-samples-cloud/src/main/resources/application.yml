@@ -1,0 +1,14 @@
+server:
+  port: 9500
+spring:
+  application:
+    name: openyich-samples-cloud
+  cloud:
+    gateway:
+      routes:
+      - id: fileservices_route
+        uri: http://10.7.112.121:8000
+        predicates: 
+        - Path=/fileservices/**
+        filters:
+        - StripPrefix=1

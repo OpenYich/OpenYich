@@ -1,4 +1,4 @@
-package com.openyich.samples.async;
+package com.openyich.samples.web.async;
 
 import java.util.UUID;
 

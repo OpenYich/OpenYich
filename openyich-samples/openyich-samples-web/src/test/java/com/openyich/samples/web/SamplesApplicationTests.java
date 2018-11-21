@@ -1,4 +1,4 @@
-package com.openyich.samples;
+package com.openyich.samples.web;
 
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
