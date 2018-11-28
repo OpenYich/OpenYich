@@ -1,5 +1,9 @@
 ## Changelog
 
+### 2.1.2 
+
+- Remove openyich-samples modules.
+
 ### 2.1.1
 
 - Upgrading Spring Boot Admin dependency version to 2.0.4
