@@ -1,4 +1,4 @@
-package com.openyich.framework.boot;
+package com.openyich.framework.boot.config;
 
 /**
  * OpenYich constants
@@ -13,11 +13,14 @@ public interface OpenYichConstants {
   String SPRING_PROFILE_TEST = "test";
   String SPRING_PROFILE_PRODUCTION = "prod";
 
-  // Spring profile for task
+  // Spring profile used to enable Spring scheduling
   String SPRING_PROFILE_TASK = "task";
 
   // Spring profile used when deploying with Spring Cloud
   String SPRING_PROFILE_CLOUD = "cloud";
+  
+  // Spring profile used when deploying to Heroku
+  String SPRING_PROFILE_HEROKU = "heroku";
 
   // Spring profile used to enable swagger
   String SPRING_PROFILE_SWAGGER = "swagger";

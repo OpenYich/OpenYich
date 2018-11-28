@@ -21,8 +21,10 @@ public class OpenYichAsyncTaskExecutor
       InitializingBean,
       DisposableBean {
 
+  private static final String EXCEPTION_MESSAGE = "Caught async exception";
+  
   private static final Logger log = LoggerFactory.getLogger(OpenYichAsyncTaskExecutor.class);
-
+  
   private final AsyncTaskExecutor executor;
 
   public OpenYichAsyncTaskExecutor(AsyncTaskExecutor executor) {
@@ -87,7 +89,7 @@ public class OpenYichAsyncTaskExecutor
   }
 
   private void handle(Exception e) {
-    log.error("Caught async exception", e);
+    log.error(EXCEPTION_MESSAGE, e);
   }
 
 }

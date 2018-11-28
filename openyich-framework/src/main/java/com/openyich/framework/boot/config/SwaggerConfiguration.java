@@ -19,7 +19,6 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.util.StopWatch;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import com.openyich.framework.boot.OpenYichConstants;
 import com.openyich.framework.boot.swagger.OpenYichSwaggerCustomizer;
 import com.openyich.framework.boot.swagger.SwaggerCustomizer;
 

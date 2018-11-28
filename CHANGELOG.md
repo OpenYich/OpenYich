@@ -6,6 +6,7 @@
 - Remove Retrofit dependency
 - Add spring scheduling support
 - Rename packages and configs
+- Add configuration properties
 
 ### 2.1.1
 
