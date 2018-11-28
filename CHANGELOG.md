@@ -2,7 +2,8 @@
 
 ### 2.1.2 
 
-- Remove openyich-samples modules.
+- Remove openyich-samples modules
+- Remove Retrofit dependency
 
 ### 2.1.1
 
