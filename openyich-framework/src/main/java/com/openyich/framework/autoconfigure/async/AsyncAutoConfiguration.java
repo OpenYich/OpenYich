@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.openyich.framework.autoconfigure.OpenYichProperties;
 
@@ -18,21 +19,28 @@ import com.openyich.framework.autoconfigure.OpenYichProperties;
 @Configuration
 @AutoConfigureAfter(OpenYichProperties.class)
 @EnableAsync
+@EnableScheduling
 public class AsyncAutoConfiguration {
 
   @Autowired
-  private OpenYichProperties properties;
+  private OpenYichProperties openYichProperties;
 
   @Bean
   @ConditionalOnMissingBean
   public OpenYichAsyncConfigurer asyncConfigurer() {
-    return new OpenYichAsyncConfigurer(properties.getAsync());
+    return new OpenYichAsyncConfigurer(openYichProperties);
   }
 
   @Bean
   @ConditionalOnMissingBean
   public OpenYichAsyncTaskExecutor asyncTaskExecutor() {
     return new OpenYichAsyncTaskExecutor(asyncConfigurer().create());
+  }
+
+  @Bean
+  @ConditionalOnMissingBean
+  public OpenYichSchedulingConfigurer schedulingConfigurer() {
+    return new OpenYichSchedulingConfigurer(openYichProperties);
   }
 
 }

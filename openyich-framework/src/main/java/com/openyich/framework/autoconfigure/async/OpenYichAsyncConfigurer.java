@@ -25,8 +25,8 @@ public class OpenYichAsyncConfigurer implements AsyncConfigurer {
 
   private OpenYichProperties.Async properties;
 
-  public OpenYichAsyncConfigurer(OpenYichProperties.Async properties) {
-    this.properties = properties;
+  public OpenYichAsyncConfigurer(OpenYichProperties openYichProperties) {
+    this.properties = openYichProperties.getAsync();
   }
 
   public AsyncTaskExecutor create() {
