@@ -1,4 +1,4 @@
-package com.openyich.framework.autoconfigure.async;
+package com.openyich.framework.boot.async;
 
 import java.lang.reflect.Method;
 import java.util.concurrent.Executor;
@@ -11,7 +11,7 @@ import org.springframework.core.task.AsyncTaskExecutor;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import com.openyich.framework.autoconfigure.OpenYichProperties;
+import com.openyich.framework.boot.config.OpenYichProperties;
 
 /**
  * Customize the AsyncConfigurer.

@@ -1,4 +1,4 @@
-package com.openyich.framework.autoconfigure.swagger;
+package com.openyich.framework.boot.swagger;
 
 import static springfox.documentation.builders.PathSelectors.regex;
 
@@ -10,7 +10,7 @@ import java.util.HashSet;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.ResponseEntity;
 
-import com.openyich.framework.autoconfigure.OpenYichProperties;
+import com.openyich.framework.boot.config.OpenYichProperties;
 
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;

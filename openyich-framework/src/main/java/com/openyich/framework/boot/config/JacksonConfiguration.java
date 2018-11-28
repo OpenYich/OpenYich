@@ -29,12 +29,12 @@ public class JacksonConfiguration {
 
   @Bean
   public ProblemModule problemModule() {
-      return new ProblemModule();
+    return new ProblemModule();
   }
 
   @Bean
   public ConstraintViolationProblemModule constraintViolationProblemModule() {
-      return new ConstraintViolationProblemModule();
+    return new ConstraintViolationProblemModule();
   }
-  
+
 }

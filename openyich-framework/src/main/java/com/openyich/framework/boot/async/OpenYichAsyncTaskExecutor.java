@@ -1,4 +1,4 @@
-package com.openyich.framework.autoconfigure.async;
+package com.openyich.framework.boot.async;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;

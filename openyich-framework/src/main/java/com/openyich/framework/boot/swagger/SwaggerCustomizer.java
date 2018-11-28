@@ -1,4 +1,4 @@
-package com.openyich.framework.autoconfigure.swagger;
+package com.openyich.framework.boot.swagger;
 
 import springfox.documentation.spring.web.plugins.Docket;
 

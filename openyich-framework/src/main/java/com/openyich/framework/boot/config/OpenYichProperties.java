@@ -1,4 +1,4 @@
-package com.openyich.framework.autoconfigure;
+package com.openyich.framework.boot.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

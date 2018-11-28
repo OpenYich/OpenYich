@@ -1,4 +1,4 @@
-package com.openyich.framework.autoconfigure.async;
+package com.openyich.framework.boot.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
@@ -8,7 +8,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-import com.openyich.framework.autoconfigure.OpenYichProperties;
+import com.openyich.framework.boot.async.OpenYichAsyncConfigurer;
+import com.openyich.framework.boot.async.OpenYichAsyncTaskExecutor;
+import com.openyich.framework.boot.async.OpenYichSchedulingConfigurer;
 
 /**
  * Async supports to OpenYich.
@@ -20,7 +22,7 @@ import com.openyich.framework.autoconfigure.OpenYichProperties;
 @AutoConfigureAfter(OpenYichProperties.class)
 @EnableAsync
 @EnableScheduling
-public class AsyncAutoConfiguration {
+public class AsyncConfiguration {
 
   @Autowired
   private OpenYichProperties openYichProperties;

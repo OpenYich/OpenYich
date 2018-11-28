@@ -1,11 +1,10 @@
-package com.openyich.framework.autoconfigure;
+package com.openyich.framework.boot.config;
 
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 import com.openyich.framework.boot.OpenYich;
-import com.openyich.framework.boot.config.JacksonConfiguration;
 
 /**
  * OpenYich Auto-configuration
@@ -16,6 +15,6 @@ import com.openyich.framework.boot.config.JacksonConfiguration;
 @Configuration
 @EnableConfigurationProperties({OpenYichProperties.class})
 @Import({OpenYich.class, JacksonConfiguration.class})
-public class OpenYichAutoConfiguration {
+public class OpenYichConfiguration {
   
 }

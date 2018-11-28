@@ -1,4 +1,4 @@
-package com.openyich.framework.autoconfigure.async;
+package com.openyich.framework.boot.async;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 
-import com.openyich.framework.autoconfigure.OpenYichProperties;
+import com.openyich.framework.boot.config.OpenYichProperties;
 
 /**
  * Customize the SchedulingConfigurer.

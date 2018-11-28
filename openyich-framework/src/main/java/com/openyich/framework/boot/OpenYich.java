@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import com.openyich.framework.autoconfigure.async.OpenYichAsyncTaskExecutor;
+import com.openyich.framework.boot.async.OpenYichAsyncTaskExecutor;
 
 /**
  * 提供一系列静态方法

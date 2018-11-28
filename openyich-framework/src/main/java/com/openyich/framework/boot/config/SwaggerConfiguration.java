@@ -1,4 +1,4 @@
-package com.openyich.framework.autoconfigure.swagger;
+package com.openyich.framework.boot.config;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,8 +19,9 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.util.StopWatch;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import com.openyich.framework.autoconfigure.OpenYichProperties;
 import com.openyich.framework.boot.OpenYichConstants;
+import com.openyich.framework.boot.swagger.OpenYichSwaggerCustomizer;
+import com.openyich.framework.boot.swagger.SwaggerCustomizer;
 
 import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.schema.AlternateTypeRule;
@@ -50,13 +51,13 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @AutoConfigureAfter(OpenYichProperties.class)
 @EnableSwagger2
 @Import(BeanValidatorPluginsConfiguration.class)
-public class SwaggerAutoConfiguration {
+public class SwaggerConfiguration {
 
-  private static final Logger log = LoggerFactory.getLogger(SwaggerAutoConfiguration.class);
+  private static final Logger log = LoggerFactory.getLogger(SwaggerConfiguration.class);
 
   private final OpenYichProperties.Swagger properties;
 
-  public SwaggerAutoConfiguration(OpenYichProperties openYichProperties) {
+  public SwaggerConfiguration(OpenYichProperties openYichProperties) {
     this.properties = openYichProperties.getSwagger();
   }
 

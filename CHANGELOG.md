@@ -5,6 +5,7 @@
 - Remove openyich-samples modules
 - Remove Retrofit dependency
 - Add spring scheduling support
+- Rename packages and configs
 
 ### 2.1.1
 
