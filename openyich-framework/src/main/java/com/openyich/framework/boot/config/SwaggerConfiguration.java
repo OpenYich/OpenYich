@@ -52,6 +52,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Import(BeanValidatorPluginsConfiguration.class)
 public class SwaggerConfiguration {
 
+  static final String STARTING_MESSAGE = "Starting Swagger";
+  static final String STARTED_MESSAGE = "Started Swagger in {} ms";
+  
   private static final Logger log = LoggerFactory.getLogger(SwaggerConfiguration.class);
 
   private final OpenYichProperties.Swagger properties;
@@ -71,7 +74,7 @@ public class SwaggerConfiguration {
   @ConditionalOnMissingBean(name = "swaggerSpringfoxApiDocket")
   public Docket swaggerSpringfoxApiDocket(List<SwaggerCustomizer> swaggerCustomizers,
       ObjectProvider<AlternateTypeRule[]> alternateTypeRules) {
-    log.info("Starting Swagger...");
+    log.debug(STARTING_MESSAGE);
     StopWatch watch = new StopWatch();
     watch.start();
 
@@ -85,7 +88,7 @@ public class SwaggerConfiguration {
     Optional.ofNullable(alternateTypeRules.getIfAvailable()).ifPresent(docket::alternateTypeRules);
 
     watch.stop();
-    log.info("Started Swagger in {} ms", watch.getTotalTimeMillis());
+    log.debug(STARTED_MESSAGE, watch.getTotalTimeMillis());
     return docket;
   }
 
@@ -99,7 +102,7 @@ public class SwaggerConfiguration {
     return new OpenYichSwaggerCustomizer(properties);
   }
 
-  private Docket createDocket() {
+  protected Docket createDocket() {
     return new Docket(DocumentationType.SWAGGER_2);
   }
 
