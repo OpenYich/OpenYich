@@ -46,12 +46,12 @@
 		<connection>scm:git:https://github.com/OpenYich/OpenYich/</connection>
 		<url>https://github.com/OpenYich/OpenYich/</url>
 	</scm>
-	
+
 	<modules>
 		<module>openyich-dependencies</module>
 		<module>openyich-framework</module>
 	</modules>
-	
+
 	<properties>
 		<openyich-framework.version>2.1.2-SNAPSHOT</openyich-framework.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -72,10 +72,10 @@
 		<jjwt.version>0.10.5</jjwt.version>
 		<mapstruct.version>1.2.0.Final</mapstruct.version>
 		<mssql-jdbc.version>7.0.0.jre8</mssql-jdbc.version>
-        <mysql-jdbc.version>5.1.47</mysql-jdbc.version>
-        <oracle-jdbc.version>18.3.0.0</oracle-jdbc.version>
-        <prometheus-simpleclient.version>0.5.0</prometheus-simpleclient.version>
-        <reflections.version>0.9.11</reflections.version>
+		<mysql-jdbc.version>5.1.47</mysql-jdbc.version>
+		<oracle-jdbc.version>18.3.0.0</oracle-jdbc.version>
+		<prometheus-simpleclient.version>0.5.0</prometheus-simpleclient.version>
+		<reflections.version>0.9.11</reflections.version>
 		<zalando.version>0.23.0</zalando.version>
 		<zkclient.version>0.10</zkclient.version>
 
@@ -192,15 +192,9 @@
 		<xstream.version>1.4.10</xstream.version>
 		<xws-security.version>3.0</xws-security.version>
 	</properties>
-	
+
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-				<groupId>com.github.zhycn</groupId>
-				<artifactId>openyich-framework</artifactId>
-				<version>${openyich-framework.version}</version>
-			</dependency>
-
 			<!-- Spring Security JWT -->
 			<dependency>
 				<groupId>org.springframework.security</groupId>
