@@ -1,4 +1,4 @@
-package com.openyich.framework.boot.converters;
+package com.openyich.framework.boot.converter;
 
 import java.time.*;
 import java.util.Date;
