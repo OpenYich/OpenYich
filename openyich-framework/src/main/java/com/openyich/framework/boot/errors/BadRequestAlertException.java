@@ -7,23 +7,29 @@ import org.zalando.problem.StatusType;
 
 import static org.zalando.problem.Status.BAD_REQUEST;
 
+/**
+ * Bad Request Alert.
+ * 
+ * <pre>
+ * new BadRequestAlertException("Email is already in use!", "userManagement", "emailexists");
+ * </pre>
+ *
+ */
 public class BadRequestAlertException extends OpenYichThrowableProblem {
 
   private static final long serialVersionUID = 1L;
-
   private final String entityName;
-
   private final String errorKey;
 
-  public BadRequestAlertException(String title, StatusType status, String defaultMessage,
+  public BadRequestAlertException(String title, StatusType status, String message,
       String entityName, String errorKey) {
-    super(title, status, defaultMessage, getAlertParameters(entityName, errorKey));
+    super(title, status, message, getAlertParameters(entityName, errorKey));
     this.entityName = entityName;
     this.errorKey = errorKey;
   }
 
-  public BadRequestAlertException(String defaultMessage, String entityName, String errorKey) {
-    this("Bad Request Exception", BAD_REQUEST, defaultMessage, entityName, errorKey);
+  public BadRequestAlertException(String message, String entityName, String errorKey) {
+    this("Bad Request", BAD_REQUEST, message, entityName, errorKey);
   }
 
   public String getEntityName() {

@@ -13,8 +13,8 @@ public class ResourceAlreadyUsedException extends BadRequestAlertException {
 
   private static final long serialVersionUID = 1L;
 
-  public ResourceAlreadyUsedException(String defaultMessage, String entityName, String errorKey) {
-    super("Already Used Exception", Status.BAD_REQUEST, defaultMessage, entityName, errorKey);
+  public ResourceAlreadyUsedException(String message, String entityName, String errorKey) {
+    super("Resource Already Used", Status.BAD_REQUEST, message, entityName, errorKey);
   }
 
 }

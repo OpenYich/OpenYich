@@ -15,7 +15,7 @@ public class ResourceNotFoundException extends OpenYichThrowableProblem {
   private static final long serialVersionUID = 1L;
 
   public ResourceNotFoundException(String message) {
-    super(message, Status.NOT_FOUND);
+    super("Resource Not Found", Status.NOT_FOUND, message);
   }
 
 }

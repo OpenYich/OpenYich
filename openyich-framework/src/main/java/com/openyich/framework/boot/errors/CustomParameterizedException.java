@@ -22,7 +22,6 @@ import org.zalando.problem.ThrowableProblem;
 public class CustomParameterizedException extends OpenYichThrowableProblem {
 
   private static final long serialVersionUID = 1L;
-
   private static final String DEFAULT_TITLE = "Parameterized Exception";
 
   public CustomParameterizedException(String message, Map<String, Object> parameters) {
