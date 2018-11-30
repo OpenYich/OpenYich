@@ -1,6 +1,7 @@
 package com.openyich.framework.boot.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.concurrent.Executors;
+
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -10,13 +11,12 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.openyich.framework.boot.async.OpenYichAsyncConfigurer;
 import com.openyich.framework.boot.async.OpenYichAsyncTaskExecutor;
+import com.openyich.framework.boot.async.OpenYichExecutor;
 import com.openyich.framework.boot.async.OpenYichSchedulingConfigurer;
+import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
 
 /**
  * Async supports to OpenYich.
- * 
- * @author zhycn
- * @since 2.1.0 2018-11-09
  */
 @Configuration
 @AutoConfigureAfter(OpenYichProperties.class)
@@ -24,8 +24,11 @@ import com.openyich.framework.boot.async.OpenYichSchedulingConfigurer;
 @EnableScheduling
 public class AsyncConfiguration {
 
-  @Autowired
   private OpenYichProperties openYichProperties;
+
+  public AsyncConfiguration(OpenYichProperties openYichProperties) {
+    this.openYichProperties = openYichProperties;
+  }
 
   @Bean
   @ConditionalOnMissingBean
@@ -43,6 +46,13 @@ public class AsyncConfiguration {
   @ConditionalOnMissingBean
   public OpenYichSchedulingConfigurer schedulingConfigurer() {
     return new OpenYichSchedulingConfigurer(openYichProperties);
+  }
+
+  @Bean
+  @ConditionalOnMissingBean
+  public OpenYichExecutor openYichExecutor() {
+    return new OpenYichExecutor(asyncTaskExecutor(),
+        Executors.newScheduledThreadPool(openYichProperties.getAsync().getCorePoolSize()));
   }
 
 }

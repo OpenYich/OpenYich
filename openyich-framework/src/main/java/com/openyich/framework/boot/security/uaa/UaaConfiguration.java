@@ -7,16 +7,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
 
-import com.openyich.framework.boot.config.OpenYichProperties;
+import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
 
 @Configuration
 @ConditionalOnClass({ClientCredentialsResourceDetails.class, LoadBalancerClient.class})
-@ConditionalOnProperty("jhipster.security.client-authorization.client-id")
-public class UaaAutoConfiguration {
+@ConditionalOnProperty("openyich.security.client-authorization.client-id")
+public class UaaConfiguration {
 
   private OpenYichProperties openYichProperties;
 
-  public UaaAutoConfiguration(OpenYichProperties openYichProperties) {
+  public UaaConfiguration(OpenYichProperties openYichProperties) {
     this.openYichProperties = openYichProperties;
   }
 

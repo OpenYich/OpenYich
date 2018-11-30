@@ -1,4 +1,4 @@
-package com.openyich.framework.boot.config;
+package com.openyich.framework.boot.autoconfigure;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -11,9 +11,6 @@ import org.springframework.web.cors.CorsConfiguration;
 
 /**
  * Properties specific to OpenYich.
- * 
- * @author zhycn
- * @since 2.1.0 2018-11-09
  */
 @ConfigurationProperties(prefix = "openyich", ignoreUnknownFields = false)
 public class OpenYichProperties {

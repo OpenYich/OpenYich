@@ -1,5 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.openyich.framework.boot.config.AsyncConfiguration,\
-  com.openyich.framework.boot.config.JacksonConfiguration,\
-  com.openyich.framework.boot.config.OpenYichConfiguration,\
-  com.openyich.framework.boot.config.SwaggerConfiguration
+  com.openyich.framework.boot.autoconfigure.OpenYichAutoConfiguration

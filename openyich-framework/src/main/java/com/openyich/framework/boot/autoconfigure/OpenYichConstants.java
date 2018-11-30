@@ -1,10 +1,7 @@
-package com.openyich.framework.boot.config;
+package com.openyich.framework.boot.autoconfigure;
 
 /**
  * OpenYich constants
- * 
- * @author zhycn
- * @since 2.1.0 2018-11-09
  */
 public interface OpenYichConstants {
 

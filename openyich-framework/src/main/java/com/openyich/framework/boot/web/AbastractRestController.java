@@ -1,4 +1,4 @@
-package com.openyich.framework.boot.web.util;
+package com.openyich.framework.boot.web;
 
 import java.util.Optional;
 
@@ -7,7 +7,7 @@ import org.springframework.http.*;
 /**
  * Utility class for ResponseEntity creation.
  */
-public interface ResponseUtil {
+public abstract class AbastractRestController {
 
   /**
    * Wrap the optional into a {@link ResponseEntity} with an {@link HttpStatus#OK} status, or if

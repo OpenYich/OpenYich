@@ -10,7 +10,7 @@ import java.util.HashSet;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.ResponseEntity;
 
-import com.openyich.framework.boot.config.OpenYichProperties;
+import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
 
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
@@ -18,9 +18,6 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 /**
  * Customize the Springfox Docket.
- * 
- * @author zhycn
- * @since 2.1.0 2018-11-09
  */
 @Order(0)
 public class OpenYichSwaggerCustomizer implements SwaggerCustomizer {

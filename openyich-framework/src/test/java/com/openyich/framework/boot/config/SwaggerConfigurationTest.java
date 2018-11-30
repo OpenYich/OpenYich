@@ -26,7 +26,8 @@ import org.springframework.http.ResponseEntity;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
-import com.openyich.framework.boot.config.OpenYichProperties.Swagger;
+import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
+import com.openyich.framework.boot.autoconfigure.OpenYichProperties.Swagger;
 import com.openyich.framework.boot.swagger.OpenYichSwaggerCustomizer;
 import com.openyich.framework.boot.swagger.SwaggerCustomizer;
 import com.openyich.framework.boot.test.LogbackRecorder;

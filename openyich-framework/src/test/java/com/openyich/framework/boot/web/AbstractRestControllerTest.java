@@ -1,4 +1,4 @@
-package com.openyich.framework.boot.web.util;
+package com.openyich.framework.boot.web;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -8,7 +8,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.http.*;
 
-public class ResponseUtilTest {
+import com.openyich.framework.boot.web.AbastractRestController;
+
+public class AbstractRestControllerTest {
 
   private static final String HEADER_NAME = "X-Test";
   private static final String HEADER_VALUE = "FooBar";
@@ -27,7 +29,7 @@ public class ResponseUtilTest {
 
   @Test
   public void testYesWithoutHeaders() {
-    ResponseEntity<Integer> response = ResponseUtil.wrapOrNotFound(yes);
+    ResponseEntity<Integer> response = AbastractRestController.wrapOrNotFound(yes);
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     assertThat(response.getBody()).isEqualTo(42);
     assertThat(response.getHeaders()).isEmpty();
@@ -35,7 +37,7 @@ public class ResponseUtilTest {
 
   @Test
   public void testNoWithoutHeaders() {
-    ResponseEntity<Integer> response = ResponseUtil.wrapOrNotFound(no);
+    ResponseEntity<Integer> response = AbastractRestController.wrapOrNotFound(no);
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
     assertThat(response.getBody()).isNull();
     assertThat(response.getHeaders()).isEmpty();
@@ -43,7 +45,7 @@ public class ResponseUtilTest {
 
   @Test
   public void testYesWithHeaders() {
-    ResponseEntity<Integer> response = ResponseUtil.wrapOrNotFound(yes, headers);
+    ResponseEntity<Integer> response = AbastractRestController.wrapOrNotFound(yes, headers);
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     assertThat(response.getBody()).isEqualTo(42);
     assertThat(response.getHeaders()).hasSize(1);
@@ -53,7 +55,7 @@ public class ResponseUtilTest {
 
   @Test
   public void testNoWithHeaders() {
-    ResponseEntity<Integer> response = ResponseUtil.wrapOrNotFound(no, headers);
+    ResponseEntity<Integer> response = AbastractRestController.wrapOrNotFound(no, headers);
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
     assertThat(response.getBody()).isNull();
     assertThat(response.getHeaders()).isEmpty();

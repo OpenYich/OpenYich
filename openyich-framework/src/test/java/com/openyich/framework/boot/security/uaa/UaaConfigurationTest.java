@@ -5,10 +5,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.openyich.framework.boot.config.OpenYichProperties;
-import com.openyich.framework.boot.config.OpenYichProperties.Security.ClientAuthorization;
+import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
+import com.openyich.framework.boot.autoconfigure.OpenYichProperties.Security.ClientAuthorization;
 
-public class UaaAutoConfigurationTest {
+public class UaaConfigurationTest {
 
   private static final String ACCESS_TOKEN_URI = "http://access.token.uri/";
   private static final String TOKEN_SERVICE_ID = "tokkie";
@@ -17,7 +17,7 @@ public class UaaAutoConfigurationTest {
 
   private OpenYichProperties properties;
   private ClientAuthorization authorization;
-  private UaaAutoConfiguration config;
+  private UaaConfiguration config;
 
   @Before
   public void setup() {
@@ -27,7 +27,7 @@ public class UaaAutoConfigurationTest {
     authorization.setTokenServiceId(TOKEN_SERVICE_ID);
     authorization.setClientId(CLIENT_ID);
     authorization.setClientSecret(CLIENT_SECRET);
-    config = new UaaAutoConfiguration(properties);
+    config = new UaaConfiguration(properties);
   }
 
   @Test

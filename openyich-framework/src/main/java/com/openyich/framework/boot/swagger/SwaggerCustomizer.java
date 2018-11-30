@@ -2,10 +2,6 @@ package com.openyich.framework.boot.swagger;
 
 import springfox.documentation.spring.web.plugins.Docket;
 
-/**
- * @author zhycn
- * @since 2.1.0 2018-11-09
- */
 @FunctionalInterface
 public interface SwaggerCustomizer {
 

@@ -8,7 +8,7 @@ import org.springframework.boot.web.embedded.undertow.UndertowServletWebServerFa
 import org.springframework.test.util.ReflectionTestUtils;
 import org.xnio.OptionMap;
 
-import com.openyich.framework.boot.config.OpenYichProperties;
+import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
 
 import io.undertow.Undertow;
 import io.undertow.UndertowOptions;

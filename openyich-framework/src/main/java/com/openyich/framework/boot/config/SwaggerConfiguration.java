@@ -19,6 +19,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.util.StopWatch;
 import org.springframework.web.servlet.DispatcherServlet;
 
+import com.openyich.framework.boot.autoconfigure.OpenYichConstants;
+import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
 import com.openyich.framework.boot.swagger.OpenYichSwaggerCustomizer;
 import com.openyich.framework.boot.swagger.SwaggerCustomizer;
 
@@ -34,9 +36,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * <p>
  * Warning! When having a lot of REST endpoints, Springfox can become a performance issue. In that
  * case, you can use the "no-swagger" Spring profile, so that this bean is ignored.
- * 
- * @author zhycn
- * @since 2.1.0 2018-01-30
  */
 @Configuration
 @ConditionalOnWebApplication

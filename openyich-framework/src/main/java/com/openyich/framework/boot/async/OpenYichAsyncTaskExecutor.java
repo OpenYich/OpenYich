@@ -11,9 +11,6 @@ import org.springframework.core.task.AsyncTaskExecutor;
 
 /**
  * Customize the AsyncTaskExecutor.
- * 
- * @author zhycn
- * @since 2.1.0 2018-11-09
  */
 public class OpenYichAsyncTaskExecutor
     implements

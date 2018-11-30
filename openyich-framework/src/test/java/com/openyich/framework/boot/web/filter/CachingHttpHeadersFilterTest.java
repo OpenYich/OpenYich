@@ -18,9 +18,10 @@ import org.springframework.mock.web.MockFilterChain;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
+import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
+
 import static com.openyich.framework.boot.web.filter.CachingHttpHeadersFilter.DEFAULT_DAYS_TO_LIVE;
 import static com.openyich.framework.boot.web.filter.CachingHttpHeadersFilter.LAST_MODIFIED;
-import com.openyich.framework.boot.config.OpenYichProperties;
 
 public class CachingHttpHeadersFilterTest {
 

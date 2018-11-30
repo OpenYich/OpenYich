@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
 
-import com.openyich.framework.boot.config.OpenYichProperties;
+import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
 
 /**
  * This filter is used in production, to put HTTP cache headers with a long (4 years) expiration
