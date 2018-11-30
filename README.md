@@ -18,7 +18,7 @@ The OpenYich BOM uses Maven's support for dependency management to provide depen
         <dependency>
             <groupId>com.github.zhycn</groupId>
             <artifactId>openyich-dependencies</artifactId>
-            <version>2.1.1</version>
+            <version>2.1.2</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
@@ -32,7 +32,7 @@ Alternatively, rather than importing the OpenYich BOM, you may prefer to use it 
 <parent>
     <groupId>com.github.zhycn</groupId>
     <artifactId>openyich-dependencies</artifactId>
-    <version>2.1.1</version>
+    <version>2.1.2</version>
     <relativePath/>
 </parent>
 ```
@@ -43,6 +43,6 @@ To override a property in Maven you can then declare the property in your pom’
 
 ```
 <properties>
-    <commons-lang3.version>3.7</commons-lang3.version>
+    <commons-lang3.version>3.8.1</commons-lang3.version>
 </properties>
 ```
