@@ -1,6 +1,5 @@
 package com.openyich.framework.boot.async;
 
-import java.lang.reflect.Method;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
 
@@ -11,13 +10,10 @@ import org.springframework.core.task.AsyncTaskExecutor;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import com.openyich.framework.boot.config.OpenYichProperties;
+import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
 
 /**
  * Customize the AsyncConfigurer.
- * 
- * @author zhycn
- * @since 2.1.0 2018-11-09
  */
 public class OpenYichAsyncConfigurer implements AsyncConfigurer {
 
@@ -51,14 +47,7 @@ public class OpenYichAsyncConfigurer implements AsyncConfigurer {
 
   @Override
   public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
-    return new AsyncUncaughtExceptionHandler() {
-
-      @Override
-      public void handleUncaughtException(Throwable ex, Method method, Object... params) {
-        log.error("Caught async exception", ex);
-      }
-
-    };
+    return (ex, method, params) -> log.error("Caught async exception", ex);
   }
 
 }

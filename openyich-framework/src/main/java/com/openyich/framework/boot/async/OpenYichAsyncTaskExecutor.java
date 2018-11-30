@@ -11,9 +11,6 @@ import org.springframework.core.task.AsyncTaskExecutor;
 
 /**
  * Customize the AsyncTaskExecutor.
- * 
- * @author zhycn
- * @since 2.1.0 2018-11-09
  */
 public class OpenYichAsyncTaskExecutor
     implements
@@ -21,8 +18,10 @@ public class OpenYichAsyncTaskExecutor
       InitializingBean,
       DisposableBean {
 
+  static final String EXCEPTION_MESSAGE = "Caught async exception";
+  
   private static final Logger log = LoggerFactory.getLogger(OpenYichAsyncTaskExecutor.class);
-
+  
   private final AsyncTaskExecutor executor;
 
   public OpenYichAsyncTaskExecutor(AsyncTaskExecutor executor) {
@@ -86,8 +85,8 @@ public class OpenYichAsyncTaskExecutor
     };
   }
 
-  private void handle(Exception e) {
-    log.error("Caught async exception", e);
+  protected void handle(Exception e) {
+    log.error(EXCEPTION_MESSAGE, e);
   }
 
 }

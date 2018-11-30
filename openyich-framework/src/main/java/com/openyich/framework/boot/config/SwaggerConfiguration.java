@@ -19,7 +19,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.util.StopWatch;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import com.openyich.framework.boot.OpenYichConstants;
+import com.openyich.framework.boot.autoconfigure.OpenYichConstants;
+import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
 import com.openyich.framework.boot.swagger.OpenYichSwaggerCustomizer;
 import com.openyich.framework.boot.swagger.SwaggerCustomizer;
 
@@ -35,9 +36,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * <p>
  * Warning! When having a lot of REST endpoints, Springfox can become a performance issue. In that
  * case, you can use the "no-swagger" Spring profile, so that this bean is ignored.
- * 
- * @author zhycn
- * @since 2.1.0 2018-01-30
  */
 @Configuration
 @ConditionalOnWebApplication
@@ -53,6 +51,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Import(BeanValidatorPluginsConfiguration.class)
 public class SwaggerConfiguration {
 
+  static final String STARTING_MESSAGE = "Starting Swagger";
+  static final String STARTED_MESSAGE = "Started Swagger in {} ms";
+  
   private static final Logger log = LoggerFactory.getLogger(SwaggerConfiguration.class);
 
   private final OpenYichProperties.Swagger properties;
@@ -72,7 +73,7 @@ public class SwaggerConfiguration {
   @ConditionalOnMissingBean(name = "swaggerSpringfoxApiDocket")
   public Docket swaggerSpringfoxApiDocket(List<SwaggerCustomizer> swaggerCustomizers,
       ObjectProvider<AlternateTypeRule[]> alternateTypeRules) {
-    log.info("Starting Swagger...");
+    log.debug(STARTING_MESSAGE);
     StopWatch watch = new StopWatch();
     watch.start();
 
@@ -86,7 +87,7 @@ public class SwaggerConfiguration {
     Optional.ofNullable(alternateTypeRules.getIfAvailable()).ifPresent(docket::alternateTypeRules);
 
     watch.stop();
-    log.info("Started Swagger in {} ms", watch.getTotalTimeMillis());
+    log.debug(STARTED_MESSAGE, watch.getTotalTimeMillis());
     return docket;
   }
 
@@ -100,7 +101,7 @@ public class SwaggerConfiguration {
     return new OpenYichSwaggerCustomizer(properties);
   }
 
-  private Docket createDocket() {
+  protected Docket createDocket() {
     return new Docket(DocumentationType.SWAGGER_2);
   }
 

@@ -10,9 +10,6 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 /**
  * Support for Java date and time API.
- * 
- * @author zhycn
- * @since 2.1.1 2018-11-15
  */
 @Configuration
 public class JacksonConfiguration {

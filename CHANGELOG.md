@@ -4,8 +4,8 @@
 
 - Remove openyich-samples modules
 - Remove Retrofit dependency
-- Add spring scheduling support
-- Rename packages and configs
+- Integrating jhipster framework
+- OpenYich Framework used Undertow to default container
 
 ### 2.1.1
 

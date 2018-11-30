@@ -3,24 +3,22 @@ package com.openyich.framework.boot.async;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 
-import com.openyich.framework.boot.config.OpenYichProperties;
+import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
 
 /**
  * Customize the SchedulingConfigurer.
- * 
- * @author zhycn
- * @since 2.1.2 2018-11-28
  */
 public class OpenYichSchedulingConfigurer implements SchedulingConfigurer {
 
-  private OpenYichProperties openYichProperties;
+  private OpenYichProperties.Async properties;
 
   public OpenYichSchedulingConfigurer(OpenYichProperties openYichProperties) {
-    this.openYichProperties = openYichProperties;
+    this.properties = openYichProperties.getAsync();
   }
 
   @Override
@@ -29,8 +27,9 @@ public class OpenYichSchedulingConfigurer implements SchedulingConfigurer {
   }
 
   @Bean
+  @Qualifier("scheduledTaskExecutor")
   public Executor scheduledTaskExecutor() {
-    return Executors.newScheduledThreadPool(openYichProperties.getAsync().getCorePoolSize());
+    return Executors.newScheduledThreadPool(properties.getCorePoolSize());
   }
 
 }
