@@ -6,7 +6,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 import com.openyich.framework.boot.config.AsyncConfiguration;
+import com.openyich.framework.boot.config.DateTimeFormatConfiguration;
 import com.openyich.framework.boot.config.JacksonConfiguration;
+import com.openyich.framework.boot.config.LocaleConfiguration;
 import com.openyich.framework.boot.config.SwaggerConfiguration;
 import com.openyich.framework.boot.security.ssl.UndertowSSLConfiguration;
 import com.openyich.framework.boot.security.uaa.UaaConfiguration;
@@ -19,7 +21,9 @@ import com.openyich.framework.boot.security.uaa.UaaConfiguration;
 @EnableConfigurationProperties({OpenYichProperties.class})
 @Import({
   AsyncConfiguration.class, 
+  DateTimeFormatConfiguration.class,
   JacksonConfiguration.class,
+  LocaleConfiguration.class,
   SwaggerConfiguration.class,
   UaaConfiguration.class,
   UndertowSSLConfiguration.class
