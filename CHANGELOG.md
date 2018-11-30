@@ -1,5 +1,9 @@
 ## Changelog
 
+### 2.1.3
+
+- Add Excptions
+
 ### 2.1.2 
 
 - Remove openyich-samples modules

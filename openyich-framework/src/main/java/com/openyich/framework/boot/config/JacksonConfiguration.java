@@ -29,7 +29,7 @@ public class JacksonConfiguration {
     return new Jdk8Module();
   }
 
-  /*
+  /**
    * Jackson Afterburner module to speed up serialization/deserialization.
    */
   @Bean
