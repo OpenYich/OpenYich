@@ -9,7 +9,6 @@ import com.openyich.framework.boot.config.AsyncConfiguration;
 import com.openyich.framework.boot.config.DateTimeFormatConfiguration;
 import com.openyich.framework.boot.config.JacksonConfiguration;
 import com.openyich.framework.boot.config.LocaleConfiguration;
-import com.openyich.framework.boot.config.SecurityConfiguration;
 import com.openyich.framework.boot.config.SwaggerConfiguration;
 import com.openyich.framework.boot.config.WebConfigurer;
 import com.openyich.framework.boot.errors.ExceptionTranslator;
@@ -28,7 +27,6 @@ import com.openyich.framework.boot.security.uaa.UaaConfiguration;
   ExceptionTranslator.class,
   JacksonConfiguration.class,
   LocaleConfiguration.class,
-  SecurityConfiguration.class,
   SwaggerConfiguration.class,
   UaaConfiguration.class,
   UndertowSSLConfiguration.class,

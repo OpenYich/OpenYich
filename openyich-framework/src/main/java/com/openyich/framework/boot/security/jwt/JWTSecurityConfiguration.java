@@ -1,8 +1,4 @@
-package com.openyich.framework.boot.config;
-
-import com.openyich.framework.boot.security.AuthoritiesConstants;
-import com.openyich.framework.boot.security.jwt.JWTConfigurer;
-import com.openyich.framework.boot.security.jwt.TokenProvider;
+package com.openyich.framework.boot.security.jwt;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Configuration;
@@ -16,17 +12,19 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.zalando.problem.spring.web.advice.security.SecurityProblemSupport;
 
+import com.openyich.framework.boot.security.AuthoritiesConstants;
+
 @Configuration
 @ConditionalOnWebApplication
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 @Import({SecurityProblemSupport.class, TokenProvider.class})
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class JWTSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
   private final TokenProvider tokenProvider;
   private final SecurityProblemSupport problemSupport;
 
-  public SecurityConfiguration(TokenProvider tokenProvider, SecurityProblemSupport problemSupport) {
+  public JWTSecurityConfiguration(TokenProvider tokenProvider, SecurityProblemSupport problemSupport) {
     this.tokenProvider = tokenProvider;
     this.problemSupport = problemSupport;
   }

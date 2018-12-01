@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.boot.web.embedded.undertow.UndertowServletWebServerFactory;
 import org.springframework.boot.web.server.MimeMappings;
 import org.springframework.boot.web.server.WebServerFactory;
@@ -30,6 +31,7 @@ import io.undertow.UndertowOptions;
  * Configuration of web application with Servlet 3.0 APIs.
  */
 @Configuration
+@ConditionalOnWebApplication
 public class WebConfigurer
     implements
       ServletContextInitializer,
@@ -52,7 +54,6 @@ public class WebConfigurer
       log.info("Web application configuration, using profiles: {}",
           (Object[]) env.getActiveProfiles());
     }
-    log.info("Web application fully configured");
   }
 
   /**
