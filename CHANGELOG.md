@@ -2,7 +2,9 @@
 
 ### 2.1.3
 
-- Add Excptions
+- Add Exception supports
+- Add JWT for Spring Security
+- Add JUnit tests
 
 ### 2.1.2 
 
