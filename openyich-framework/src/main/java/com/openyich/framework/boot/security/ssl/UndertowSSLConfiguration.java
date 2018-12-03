@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.boot.web.embedded.undertow.UndertowServletWebServerFactory;
 import org.springframework.context.annotation.Configuration;
 
@@ -27,6 +28,7 @@ import io.undertow.UndertowOptions;
  *      target="_blank">More explanation on perfect forward secrecy</a>
  */
 @Configuration
+@ConditionalOnWebApplication
 @ConditionalOnClass({UndertowServletWebServerFactory.class})
 @ConditionalOnProperty({"server.ssl.ciphers", "server.ssl.key-store"})
 public class UndertowSSLConfiguration {
