@@ -466,7 +466,7 @@ public class OpenYichProperties {
 
       public static class Jwt {
 
-        private String secret = null;
+        private String secret = "";
 
         private String base64Secret = null;
 
