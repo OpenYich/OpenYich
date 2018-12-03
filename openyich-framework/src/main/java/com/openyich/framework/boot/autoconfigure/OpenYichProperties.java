@@ -9,6 +9,7 @@ import javax.validation.constraints.NotNull;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.web.cors.CorsConfiguration;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 /**
@@ -472,6 +473,8 @@ public class OpenYichProperties {
         private long tokenValidityInSeconds = 1800; // 0.5 hour
 
         private long tokenValidityInSecondsForRememberMe = 2592000; // 30 days;
+        
+        private List<String> ignorings = Lists.newArrayList(); // antMatchers
 
         public String getSecret() {
           return secret;
@@ -505,6 +508,15 @@ public class OpenYichProperties {
             long tokenValidityInSecondsForRememberMe) {
           this.tokenValidityInSecondsForRememberMe = tokenValidityInSecondsForRememberMe;
         }
+
+        public List<String> getIgnorings() {
+          return ignorings;
+        }
+
+        public void setIgnorings(List<String> ignorings) {
+          this.ignorings = ignorings;
+        }
+        
       }
     }
 
