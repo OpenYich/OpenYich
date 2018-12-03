@@ -1,13 +1,9 @@
 package com.openyich.framework.boot.security.jwt;
 
-import java.nio.charset.StandardCharsets;
-import java.security.Key;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.stream.Collectors;
-
-import javax.annotation.PostConstruct;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,9 +12,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
+import com.openyich.framework.boot.autoconfigure.OpenYichProperties.Security.Authentication.Jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -26,45 +24,33 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.UnsupportedJwtException;
-import io.jsonwebtoken.io.Decoders;
-import io.jsonwebtoken.security.Keys;
 
+@Component
 public class TokenProvider {
 
-  private final Logger log = LoggerFactory.getLogger(TokenProvider.class);
+  private static final Logger log = LoggerFactory.getLogger(TokenProvider.class);
+  private static final String AUTHORITIES_KEY = "roles";
 
-  private static final String AUTHORITIES_KEY = "auth";
-
-  private Key key;
-
+  private String secret;
   private long tokenValidityInMilliseconds;
-
   private long tokenValidityInMillisecondsForRememberMe;
 
-  private final OpenYichProperties openYichProperties;
-
   public TokenProvider(OpenYichProperties openYichProperties) {
-    this.openYichProperties = openYichProperties;
-  }
+    Jwt jwt = openYichProperties.getSecurity().getAuthentication().getJwt();
+    
+    this.secret = jwt.getSecret();
 
-  @PostConstruct
-  public void init() {
-    byte[] keyBytes;
-    String secret = openYichProperties.getSecurity().getAuthentication().getJwt().getSecret();
     if (!StringUtils.isEmpty(secret)) {
       log.warn("Warning: the JWT key used is not Base64-encoded. "
           + "We recommend using the `openyich.security.authentication.jwt.base64-secret` key for optimum security.");
-      keyBytes = secret.getBytes(StandardCharsets.UTF_8);
     } else {
       log.debug("Using a Base64-encoded JWT secret key");
-      keyBytes = Decoders.BASE64
-          .decode(openYichProperties.getSecurity().getAuthentication().getJwt().getBase64Secret());
+      this.secret = jwt.getBase64Secret();
     }
-    this.key = Keys.hmacShaKeyFor(keyBytes);
-    this.tokenValidityInMilliseconds = 1000
-        * openYichProperties.getSecurity().getAuthentication().getJwt().getTokenValidityInSeconds();
-    this.tokenValidityInMillisecondsForRememberMe = 1000 * openYichProperties.getSecurity()
-        .getAuthentication().getJwt().getTokenValidityInSecondsForRememberMe();
+
+    this.tokenValidityInMilliseconds = 1000 * jwt.getTokenValidityInSeconds();
+    this.tokenValidityInMillisecondsForRememberMe =
+        1000 * jwt.getTokenValidityInSecondsForRememberMe();
   }
 
   public String createToken(Authentication authentication, boolean rememberMe) {
@@ -80,11 +66,11 @@ public class TokenProvider {
     }
 
     return Jwts.builder().setSubject(authentication.getName()).claim(AUTHORITIES_KEY, authorities)
-        .signWith(key, SignatureAlgorithm.HS512).setExpiration(validity).compact();
+        .signWith(SignatureAlgorithm.HS512, secret).setExpiration(validity).compact();
   }
 
   public Authentication getAuthentication(String token) {
-    Claims claims = Jwts.parser().setSigningKey(key).parseClaimsJws(token).getBody();
+    Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
 
     Collection<? extends GrantedAuthority> authorities =
         Arrays.stream(claims.get(AUTHORITIES_KEY).toString().split(","))
@@ -97,9 +83,9 @@ public class TokenProvider {
 
   public boolean validateToken(String authToken) {
     try {
-      Jwts.parser().setSigningKey(key).parseClaimsJws(authToken);
+      Jwts.parser().setSigningKey(secret).parseClaimsJws(authToken);
       return true;
-    } catch (io.jsonwebtoken.security.SecurityException | MalformedJwtException e) {
+    } catch (MalformedJwtException e) {
       log.info("Invalid JWT signature.");
       log.trace("Invalid JWT signature trace: {}", e);
     } catch (ExpiredJwtException e) {
@@ -111,7 +97,11 @@ public class TokenProvider {
     } catch (IllegalArgumentException e) {
       log.info("JWT token compact of handler are invalid.");
       log.trace("JWT token compact of handler are invalid trace: {}", e);
+    } catch (Exception e) {
+      log.info("Invalid JWT token.");
+      log.trace("Invalid JWT token trace: {}", e);
     }
     return false;
   }
+  
 }
