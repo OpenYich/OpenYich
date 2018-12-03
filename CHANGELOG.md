@@ -1,5 +1,11 @@
 ## Changelog
 
+### 2.1.3
+
+- Add Exception supports
+- Add JWT for Spring Security
+- Add JUnit tests
+
 ### 2.1.2 
 
 - Remove openyich-samples modules

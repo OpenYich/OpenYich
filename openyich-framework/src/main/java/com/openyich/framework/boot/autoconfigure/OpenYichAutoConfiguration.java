@@ -6,8 +6,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 import com.openyich.framework.boot.config.AsyncConfiguration;
+import com.openyich.framework.boot.config.DateTimeFormatConfiguration;
+import com.openyich.framework.boot.config.HttpHeadersTranslator;
 import com.openyich.framework.boot.config.JacksonConfiguration;
+import com.openyich.framework.boot.config.LocaleConfiguration;
 import com.openyich.framework.boot.config.SwaggerConfiguration;
+import com.openyich.framework.boot.config.WebConfigurer;
+import com.openyich.framework.boot.errors.ExceptionTranslator;
 import com.openyich.framework.boot.security.ssl.UndertowSSLConfiguration;
 import com.openyich.framework.boot.security.uaa.UaaConfiguration;
 
@@ -19,10 +24,15 @@ import com.openyich.framework.boot.security.uaa.UaaConfiguration;
 @EnableConfigurationProperties({OpenYichProperties.class})
 @Import({
   AsyncConfiguration.class, 
+  DateTimeFormatConfiguration.class,
+  ExceptionTranslator.class,
+  HttpHeadersTranslator.class,
   JacksonConfiguration.class,
+  LocaleConfiguration.class,
   SwaggerConfiguration.class,
   UaaConfiguration.class,
-  UndertowSSLConfiguration.class
+  UndertowSSLConfiguration.class,
+  WebConfigurer.class
 })
 public class OpenYichAutoConfiguration {
   

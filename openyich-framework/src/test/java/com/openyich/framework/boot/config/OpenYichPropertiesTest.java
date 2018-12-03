@@ -91,16 +91,6 @@ public class OpenYichPropertiesTest {
   }
 
   @Test
-  public void testHttpCacheTimeToLiveInDays() {
-    OpenYichProperties.Http.Cache obj = properties.getHttp().getCache();
-    int val = 1461;
-    assertThat(obj.getTimeToLiveInDays()).isEqualTo(val);
-    val++;
-    obj.setTimeToLiveInDays(val);
-    assertThat(obj.getTimeToLiveInDays()).isEqualTo(val);
-  }
-
-  @Test
   public void testHttpUseUndertowUserCipherSuitesOrder() {
     OpenYichProperties.Http obj = properties.getHttp();
     boolean val = true;
