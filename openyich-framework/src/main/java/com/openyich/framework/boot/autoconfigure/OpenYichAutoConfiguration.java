@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Import;
 
 import com.openyich.framework.boot.config.AsyncConfiguration;
 import com.openyich.framework.boot.config.DateTimeFormatConfiguration;
+import com.openyich.framework.boot.config.HttpHeadersTranslator;
 import com.openyich.framework.boot.config.JacksonConfiguration;
 import com.openyich.framework.boot.config.LocaleConfiguration;
 import com.openyich.framework.boot.config.SwaggerConfiguration;
@@ -25,6 +26,7 @@ import com.openyich.framework.boot.security.uaa.UaaConfiguration;
   AsyncConfiguration.class, 
   DateTimeFormatConfiguration.class,
   ExceptionTranslator.class,
+  HttpHeadersTranslator.class,
   JacksonConfiguration.class,
   LocaleConfiguration.class,
   SwaggerConfiguration.class,
