@@ -16,7 +16,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
@@ -30,7 +29,6 @@ import io.jsonwebtoken.UnsupportedJwtException;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 
-@Component
 public class TokenProvider {
 
   private final Logger log = LoggerFactory.getLogger(TokenProvider.class);

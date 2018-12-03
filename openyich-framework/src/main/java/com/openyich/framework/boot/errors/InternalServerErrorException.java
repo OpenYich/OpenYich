@@ -10,7 +10,7 @@ public class InternalServerErrorException extends OpenYichThrowableProblem {
   private static final long serialVersionUID = 1L;
 
   public InternalServerErrorException() {
-    super("Internal Server Error", Status.INTERNAL_SERVER_ERROR);
+    this(null);
   }
 
   public InternalServerErrorException(String message) {
