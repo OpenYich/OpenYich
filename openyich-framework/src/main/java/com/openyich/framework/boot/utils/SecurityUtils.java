@@ -1,8 +1,10 @@
-package com.openyich.framework.boot.security;
+package com.openyich.framework.boot.utils;
 
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.openyich.framework.boot.security.AuthoritiesConstants;
 
 import java.util.Optional;
 

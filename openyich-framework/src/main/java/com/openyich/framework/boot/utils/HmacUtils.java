@@ -1,4 +1,4 @@
-package com.openyich.framework.boot.security;
+package com.openyich.framework.boot.utils;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;

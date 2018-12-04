@@ -1,4 +1,4 @@
-package com.openyich.framework.boot;
+package com.openyich.framework.boot.utils;
 
 import java.util.Optional;
 import java.util.function.Supplier;

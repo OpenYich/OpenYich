@@ -13,6 +13,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.Base64Utils;
 
+import com.openyich.framework.boot.utils.HmacUtils;
+
 public class HmacUtilsTest {
 
   private static final Logger log = LoggerFactory.getLogger(HmacUtilsTest.class);
