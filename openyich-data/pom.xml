@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.github.zhycn</groupId>
+		<artifactId>openyich-dependencies</artifactId>
+		<version>2.1.4-SNAPSHOT</version>
+		<relativePath>../openyich-dependencies/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>openyich-data</artifactId>
+	<packaging>jar</packaging>
+	<name>OpenYich Data</name>
+	<description>A data module built on Spring Data JPA</description>
+	<url>https://github.com/OpenYich/OpenYich/</url>
+
+	<dependencies>
+		<!-- Default dependency versions -->
+		<dependency>
+			<groupId>com.github.zhycn</groupId>
+			<artifactId>openyich-framework</artifactId>
+		</dependency>
+
+		<!-- Support the configuration and testing -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+
+</project>

@@ -48,6 +48,7 @@
 	</scm>
 
 	<modules>
+		<module>openyich-data</module>
 		<module>openyich-dependencies</module>
 		<module>openyich-framework</module>
 	</modules>

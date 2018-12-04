@@ -23,6 +23,11 @@
 				<artifactId>openyich-framework</artifactId>
 				<version>${openyich-framework.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.github.zhycn</groupId>
+				<artifactId>openyich-data</artifactId>
+				<version>${openyich-framework.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
