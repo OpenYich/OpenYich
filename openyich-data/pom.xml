@@ -22,8 +22,7 @@
 			<groupId>com.github.zhycn</groupId>
 			<artifactId>openyich-framework</artifactId>
 		</dependency>
-		
-		<!-- Default dependency versions -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -38,11 +37,15 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- Support the configuration and testing -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
