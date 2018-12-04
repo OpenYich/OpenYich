@@ -1,4 +1,4 @@
-package com.openyich.framework.data.jpa.query;
+package com.openyich.framework.data.query;
 
 import java.util.Collection;
 import java.util.Set;
@@ -14,9 +14,9 @@ import javax.persistence.metamodel.SingularAttribute;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.openyich.framework.data.jpa.filter.Filter;
-import com.openyich.framework.data.jpa.filter.RangeFilter;
-import com.openyich.framework.data.jpa.filter.StringFilter;
+import com.openyich.framework.data.filter.Filter;
+import com.openyich.framework.data.filter.RangeFilter;
+import com.openyich.framework.data.filter.StringFilter;
 
 /**
  * Base service for constructing and executing complex queries.

@@ -8,6 +8,9 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.openyich.framework.data.filter.DoubleFilter;
+import com.openyich.framework.data.filter.Filter;
+
 public class DoubleFilterTest {
 
   private DoubleFilter filter;

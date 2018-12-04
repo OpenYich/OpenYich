@@ -1,6 +1,9 @@
 package com.openyich.framework.data.jpa.filter;
 
 import com.google.common.collect.Lists;
+import com.openyich.framework.data.filter.Filter;
+import com.openyich.framework.data.filter.RangeFilter;
+
 import org.junit.Before;
 import org.junit.Test;
 

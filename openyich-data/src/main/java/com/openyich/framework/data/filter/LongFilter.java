@@ -1,4 +1,4 @@
-package com.openyich.framework.data.jpa.filter;
+package com.openyich.framework.data.filter;
 
 /**
  * Filter class for {@link Long} type attributes.

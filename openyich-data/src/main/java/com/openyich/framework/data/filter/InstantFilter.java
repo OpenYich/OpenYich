@@ -1,59 +1,52 @@
-package com.openyich.framework.data.jpa.filter;
+package com.openyich.framework.data.filter;
 
-import java.time.ZonedDateTime;
-import java.util.List;
+import java.time.Instant;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 /**
- * Filter class for {@link ZonedDateTime} type attributes.
+ * Filter class for {@link Instant} type attributes.
  *
  * @see RangeFilter
  */
-public class ZonedDateTimeFilter extends RangeFilter<ZonedDateTime> {
+public class InstantFilter extends RangeFilter<Instant> {
 
   private static final long serialVersionUID = 1L;
 
   @Override
   @DateTimeFormat(iso = ISO.DATE_TIME)
-  public ZonedDateTimeFilter setEquals(ZonedDateTime equals) {
+  public InstantFilter setEquals(Instant equals) {
     super.setEquals(equals);
     return this;
   }
 
   @Override
   @DateTimeFormat(iso = ISO.DATE_TIME)
-  public ZonedDateTimeFilter setGreaterThan(ZonedDateTime equals) {
+  public InstantFilter setGreaterThan(Instant equals) {
     super.setGreaterThan(equals);
     return this;
   }
 
   @Override
   @DateTimeFormat(iso = ISO.DATE_TIME)
-  public ZonedDateTimeFilter setGreaterOrEqualThan(ZonedDateTime equals) {
+  public InstantFilter setGreaterOrEqualThan(Instant equals) {
     super.setGreaterOrEqualThan(equals);
     return this;
   }
 
   @Override
   @DateTimeFormat(iso = ISO.DATE_TIME)
-  public ZonedDateTimeFilter setLessThan(ZonedDateTime equals) {
+  public InstantFilter setLessThan(Instant equals) {
     super.setLessThan(equals);
     return this;
   }
 
   @Override
   @DateTimeFormat(iso = ISO.DATE_TIME)
-  public ZonedDateTimeFilter setLessOrEqualThan(ZonedDateTime equals) {
+  public InstantFilter setLessOrEqualThan(Instant equals) {
     super.setLessOrEqualThan(equals);
     return this;
   }
 
-  @Override
-  @DateTimeFormat(iso = ISO.DATE_TIME)
-  public ZonedDateTimeFilter setIn(List<ZonedDateTime> in) {
-    super.setIn(in);
-    return this;
-  }
 }

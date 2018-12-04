@@ -1,4 +1,4 @@
-package com.openyich.framework.data.jpa.filter;
+package com.openyich.framework.data.filter;
 
 /**
  * Class for filtering attributes with {@link Boolean} type. It can be added to a criteria class as

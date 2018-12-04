@@ -1,4 +1,4 @@
 /**
  * Utilities for JPA criteria classes, used for filtering data on the back-end.
  */
-package com.openyich.framework.data.jpa.filter;
+package com.openyich.framework.data.filter;

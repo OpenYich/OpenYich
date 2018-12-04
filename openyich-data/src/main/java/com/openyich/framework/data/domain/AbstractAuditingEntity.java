@@ -1,4 +1,4 @@
-package com.openyich.framework.data.jpa.domain;
+package com.openyich.framework.data.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.CreatedBy;

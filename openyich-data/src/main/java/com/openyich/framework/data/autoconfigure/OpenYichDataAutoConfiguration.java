@@ -11,11 +11,9 @@ import com.openyich.framework.data.config.SpringSecurityAuditorAware;
 
 @Configuration
 @EnableConfigurationProperties({OpenYichDataProperties.class})
-@EnableJpaAuditing(auditorAwareRef = "springSecurityAuditorAware")
 @EnableTransactionManagement(mode = AdviceMode.ASPECTJ, proxyTargetClass = true)
-@Import({
-  SpringSecurityAuditorAware.class
-})
+@EnableJpaAuditing(auditorAwareRef = "springSecurityAuditorAware")
+@Import({SpringSecurityAuditorAware.class})
 public class OpenYichDataAutoConfiguration {
 
 }

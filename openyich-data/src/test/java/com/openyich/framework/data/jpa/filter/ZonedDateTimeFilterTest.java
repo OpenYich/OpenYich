@@ -9,6 +9,9 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.openyich.framework.data.filter.Filter;
+import com.openyich.framework.data.filter.ZonedDateTimeFilter;
+
 public class ZonedDateTimeFilterTest {
 
   private ZonedDateTimeFilter filter;

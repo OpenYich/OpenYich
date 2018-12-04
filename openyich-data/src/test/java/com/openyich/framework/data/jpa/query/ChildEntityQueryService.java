@@ -2,7 +2,8 @@ package com.openyich.framework.data.jpa.query;
 
 import org.springframework.data.jpa.domain.Specification;
 
-import com.openyich.framework.data.jpa.filter.LongFilter;
+import com.openyich.framework.data.filter.LongFilter;
+import com.openyich.framework.data.query.QueryService;
 
 /**
  * This class is just a compile - test.
