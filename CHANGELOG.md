@@ -1,5 +1,11 @@
 ## Changelog
 
+### 2.1.4
+
+- Add openyich-data module
+- Add Spring Data JPA supports
+- Refactoring Data layers
+
 ### 2.1.3
 
 - Add Exception supports

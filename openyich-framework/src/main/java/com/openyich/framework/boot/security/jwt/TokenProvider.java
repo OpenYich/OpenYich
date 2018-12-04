@@ -14,9 +14,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
 
-import com.openyich.framework.boot.OpenYichAssert;
 import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
 import com.openyich.framework.boot.autoconfigure.OpenYichProperties.Security.Authentication.Jwt;
+import com.openyich.framework.boot.utils.OpenYichAssert;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
