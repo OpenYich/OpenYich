@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Component;
 
-import com.openyich.framework.boot.security.SecurityUtils;
+import com.openyich.framework.boot.utils.SecurityUtils;
 
 /**
  * Implementation of AuditorAware based on Spring Security.
