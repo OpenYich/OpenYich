@@ -18,10 +18,24 @@
 	<url>https://github.com/OpenYich/OpenYich/</url>
 
 	<dependencies>
-		<!-- Default dependency versions -->
 		<dependency>
 			<groupId>com.github.zhycn</groupId>
 			<artifactId>openyich-framework</artifactId>
+		</dependency>
+		
+		<!-- Default dependency versions -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 
 		<!-- Support the configuration and testing -->

@@ -55,7 +55,7 @@
 
 	<properties>
 		<!-- Build properties -->
-		<openyich-framework.version>2.1.4-SNAPSHOT</openyich-framework.version>
+		<openyich.version>2.1.4-SNAPSHOT</openyich.version>
 		<spring-boot.version>2.0.2.RELEASE</spring-boot.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
