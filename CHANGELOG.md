@@ -1,5 +1,9 @@
 ## Changelog
 
+### 2.1.5
+
+- Supports for Spring Boot Actuator
+
 ### 2.1.4
 
 - Add openyich-data module
