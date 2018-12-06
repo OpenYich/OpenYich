@@ -3,6 +3,7 @@
 ### 2.1.5
 
 - Supports for Spring Boot Actuator
+- Integrating the Spring Data Redis
 
 ### 2.1.4
 
