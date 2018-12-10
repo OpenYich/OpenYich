@@ -1,15 +1,15 @@
-package com.openyich.framework.data.jpa.query;
+package com.openyich.framework.data.mapper;
 
 import org.springframework.data.jpa.domain.Specification;
 
 import com.openyich.framework.data.filter.LongFilter;
 import com.openyich.framework.data.filter.StringFilter;
-import com.openyich.framework.data.query.QueryService;
+import com.openyich.framework.data.mapper.impl.AbastractQueryMapperImpl;
 
 /**
  * This class is just a compile - test.
  */
-public class BaseEntityQueryService extends QueryService<BaseEntity> {
+public class BaseEntityQueryMapperImpl extends AbastractQueryMapperImpl<BaseEntity> {
 
   static class BaseEntityCriteria {
     LongFilter id;

@@ -1,4 +1,4 @@
-package com.openyich.framework.data.jpa.query;
+package com.openyich.framework.data.mapper;
 
 import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;

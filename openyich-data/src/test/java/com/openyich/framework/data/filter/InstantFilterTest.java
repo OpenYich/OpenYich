@@ -1,7 +1,8 @@
-package com.openyich.framework.data.jpa.filter;
+package com.openyich.framework.data.filter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.time.Instant;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,17 +10,17 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.openyich.framework.data.filter.Filter;
-import com.openyich.framework.data.filter.FloatFilter;
+import com.openyich.framework.data.filter.InstantFilter;
 
-public class FloatFilterTest {
+public class InstantFilterTest {
 
-  private FloatFilter filter;
+  private InstantFilter filter;
 
-  private Float value = 42F;
+  private Instant value = Instant.now();
 
   @Before
   public void setup() {
-    filter = new FloatFilter();
+    filter = new InstantFilter();
   }
 
   @Test
@@ -31,55 +32,55 @@ public class FloatFilterTest {
     assertThat(filter.getLessOrEqualThan()).isNull();
     assertThat(filter.getSpecified()).isNull();
     assertThat(filter.getIn()).isNull();
-    assertThat(filter.toString()).isEqualTo("FloatFilter []");
+    assertThat(filter.toString()).isEqualTo("InstantFilter []");
   }
 
   @Test
   public void testSetEquals() {
-    Filter<Float> chain = filter.setEquals(value);
+    Filter<Instant> chain = filter.setEquals(value);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getEquals()).isEqualTo(value);
   }
 
   @Test
   public void testSetLessThan() {
-    Filter<Float> chain = filter.setLessThan(value);
+    Filter<Instant> chain = filter.setLessThan(value);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getLessThan()).isEqualTo(value);
   }
 
   @Test
   public void testSetLessOrEqualThan() {
-    Filter<Float> chain = filter.setLessOrEqualThan(value);
+    Filter<Instant> chain = filter.setLessOrEqualThan(value);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getLessOrEqualThan()).isEqualTo(value);
   }
 
   @Test
   public void testSetGreaterThan() {
-    Filter<Float> chain = filter.setGreaterThan(value);
+    Filter<Instant> chain = filter.setGreaterThan(value);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getGreaterThan()).isEqualTo(value);
   }
 
   @Test
   public void testSetGreaterOrEqualThan() {
-    Filter<Float> chain = filter.setGreaterOrEqualThan(value);
+    Filter<Instant> chain = filter.setGreaterOrEqualThan(value);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getGreaterOrEqualThan()).isEqualTo(value);
   }
 
   @Test
   public void testSetSpecified() {
-    Filter<Float> chain = filter.setSpecified(true);
+    Filter<Instant> chain = filter.setSpecified(true);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getSpecified()).isEqualTo(true);
   }
 
   @Test
   public void testSetIn() {
-    List<Float> list = new LinkedList<>();
-    Filter<Float> chain = filter.setIn(list);
+    List<Instant> list = new LinkedList<>();
+    Filter<Instant> chain = filter.setIn(list);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getIn()).isEqualTo(list);
   }
@@ -94,8 +95,8 @@ public class FloatFilterTest {
     filter.setSpecified(true);
     filter.setIn(new LinkedList<>());
     String str = value.toString();
-    assertThat(filter.toString()).isEqualTo(
-        "FloatFilter " + "[greaterThan=" + str + ", greaterOrEqualThan=" + str + ", lessThan=" + str
-            + ", " + "lessOrEqualThan=" + str + ", equals=" + str + ", specified=true, in=[]]");
+    assertThat(filter.toString()).isEqualTo("InstantFilter " + "[greaterThan=" + str
+        + ", greaterOrEqualThan=" + str + ", lessThan=" + str + ", " + "lessOrEqualThan=" + str
+        + ", equals=" + str + ", specified=true, in=[]]");
   }
 }

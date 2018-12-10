@@ -1,8 +1,7 @@
-package com.openyich.framework.data.jpa.filter;
+package com.openyich.framework.data.filter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,17 +9,17 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.openyich.framework.data.filter.Filter;
-import com.openyich.framework.data.filter.LocalDateFilter;
+import com.openyich.framework.data.filter.IntegerFilter;
 
-public class LocalDateFilterTest {
+public class IntegerFilterTest {
 
-  private LocalDateFilter filter;
+  private IntegerFilter filter;
 
-  private LocalDate value = LocalDate.now();
+  private Integer value = 42;
 
   @Before
   public void setup() {
-    filter = new LocalDateFilter();
+    filter = new IntegerFilter();
   }
 
   @Test
@@ -32,55 +31,55 @@ public class LocalDateFilterTest {
     assertThat(filter.getLessOrEqualThan()).isNull();
     assertThat(filter.getSpecified()).isNull();
     assertThat(filter.getIn()).isNull();
-    assertThat(filter.toString()).isEqualTo("LocalDateFilter []");
+    assertThat(filter.toString()).isEqualTo("IntegerFilter []");
   }
 
   @Test
   public void testSetEquals() {
-    Filter<LocalDate> chain = filter.setEquals(value);
+    Filter<Integer> chain = filter.setEquals(value);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getEquals()).isEqualTo(value);
   }
 
   @Test
   public void testSetLessThan() {
-    Filter<LocalDate> chain = filter.setLessThan(value);
+    Filter<Integer> chain = filter.setLessThan(value);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getLessThan()).isEqualTo(value);
   }
 
   @Test
   public void testSetLessOrEqualThan() {
-    Filter<LocalDate> chain = filter.setLessOrEqualThan(value);
+    Filter<Integer> chain = filter.setLessOrEqualThan(value);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getLessOrEqualThan()).isEqualTo(value);
   }
 
   @Test
   public void testSetGreaterThan() {
-    Filter<LocalDate> chain = filter.setGreaterThan(value);
+    Filter<Integer> chain = filter.setGreaterThan(value);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getGreaterThan()).isEqualTo(value);
   }
 
   @Test
   public void testSetGreaterOrEqualThan() {
-    Filter<LocalDate> chain = filter.setGreaterOrEqualThan(value);
+    Filter<Integer> chain = filter.setGreaterOrEqualThan(value);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getGreaterOrEqualThan()).isEqualTo(value);
   }
 
   @Test
   public void testSetSpecified() {
-    Filter<LocalDate> chain = filter.setSpecified(true);
+    Filter<Integer> chain = filter.setSpecified(true);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getSpecified()).isEqualTo(true);
   }
 
   @Test
   public void testSetIn() {
-    List<LocalDate> list = new LinkedList<>();
-    Filter<LocalDate> chain = filter.setIn(list);
+    List<Integer> list = new LinkedList<>();
+    Filter<Integer> chain = filter.setIn(list);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getIn()).isEqualTo(list);
   }
@@ -95,7 +94,7 @@ public class LocalDateFilterTest {
     filter.setSpecified(true);
     filter.setIn(new LinkedList<>());
     String str = value.toString();
-    assertThat(filter.toString()).isEqualTo("LocalDateFilter " + "[greaterThan=" + str
+    assertThat(filter.toString()).isEqualTo("IntegerFilter " + "[greaterThan=" + str
         + ", greaterOrEqualThan=" + str + ", lessThan=" + str + ", " + "lessOrEqualThan=" + str
         + ", equals=" + str + ", specified=true, in=[]]");
   }

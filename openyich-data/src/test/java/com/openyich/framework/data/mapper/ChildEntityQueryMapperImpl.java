@@ -1,16 +1,16 @@
-package com.openyich.framework.data.jpa.query;
+package com.openyich.framework.data.mapper;
 
 import org.springframework.data.jpa.domain.Specification;
 
 import com.openyich.framework.data.filter.LongFilter;
-import com.openyich.framework.data.query.QueryService;
+import com.openyich.framework.data.mapper.impl.AbastractQueryMapperImpl;
 
 /**
  * This class is just a compile - test.
  */
-public class ChildEntityQueryService extends QueryService<ChildEntity> {
+public class ChildEntityQueryMapperImpl extends AbastractQueryMapperImpl<ChildEntity> {
 
-  static class ChildEntityCriteria extends BaseEntityQueryService.BaseEntityCriteria {
+  static class ChildEntityCriteria extends BaseEntityQueryMapperImpl.BaseEntityCriteria {
     LongFilter parentId;
 
     public LongFilter getParentId() {

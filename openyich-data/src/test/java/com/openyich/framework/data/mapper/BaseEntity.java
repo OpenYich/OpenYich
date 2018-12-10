@@ -1,4 +1,4 @@
-package com.openyich.framework.data.jpa.query;
+package com.openyich.framework.data.mapper;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;

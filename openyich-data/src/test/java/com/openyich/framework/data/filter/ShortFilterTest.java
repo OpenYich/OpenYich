@@ -1,4 +1,4 @@
-package com.openyich.framework.data.jpa.filter;
+package com.openyich.framework.data.filter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -9,17 +9,17 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.openyich.framework.data.filter.Filter;
-import com.openyich.framework.data.filter.LongFilter;
+import com.openyich.framework.data.filter.ShortFilter;
 
-public class LongFilterTest {
+public class ShortFilterTest {
 
-  private LongFilter filter;
+  private ShortFilter filter;
 
-  private Long value = 42L;
+  private Short value = 42;
 
   @Before
   public void setup() {
-    filter = new LongFilter();
+    filter = new ShortFilter();
   }
 
   @Test
@@ -31,55 +31,55 @@ public class LongFilterTest {
     assertThat(filter.getLessOrEqualThan()).isNull();
     assertThat(filter.getSpecified()).isNull();
     assertThat(filter.getIn()).isNull();
-    assertThat(filter.toString()).isEqualTo("LongFilter []");
+    assertThat(filter.toString()).isEqualTo("ShortFilter []");
   }
 
   @Test
   public void testSetEquals() {
-    Filter<Long> chain = filter.setEquals(value);
+    Filter<Short> chain = filter.setEquals(value);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getEquals()).isEqualTo(value);
   }
 
   @Test
   public void testSetLessThan() {
-    Filter<Long> chain = filter.setLessThan(value);
+    Filter<Short> chain = filter.setLessThan(value);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getLessThan()).isEqualTo(value);
   }
 
   @Test
   public void testSetLessOrEqualThan() {
-    Filter<Long> chain = filter.setLessOrEqualThan(value);
+    Filter<Short> chain = filter.setLessOrEqualThan(value);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getLessOrEqualThan()).isEqualTo(value);
   }
 
   @Test
   public void testSetGreaterThan() {
-    Filter<Long> chain = filter.setGreaterThan(value);
+    Filter<Short> chain = filter.setGreaterThan(value);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getGreaterThan()).isEqualTo(value);
   }
 
   @Test
   public void testSetGreaterOrEqualThan() {
-    Filter<Long> chain = filter.setGreaterOrEqualThan(value);
+    Filter<Short> chain = filter.setGreaterOrEqualThan(value);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getGreaterOrEqualThan()).isEqualTo(value);
   }
 
   @Test
   public void testSetSpecified() {
-    Filter<Long> chain = filter.setSpecified(true);
+    Filter<Short> chain = filter.setSpecified(true);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getSpecified()).isEqualTo(true);
   }
 
   @Test
   public void testSetIn() {
-    List<Long> list = new LinkedList<>();
-    Filter<Long> chain = filter.setIn(list);
+    List<Short> list = new LinkedList<>();
+    Filter<Short> chain = filter.setIn(list);
     assertThat(chain).isEqualTo(filter);
     assertThat(filter.getIn()).isEqualTo(list);
   }
@@ -95,7 +95,7 @@ public class LongFilterTest {
     filter.setIn(new LinkedList<>());
     String str = value.toString();
     assertThat(filter.toString()).isEqualTo(
-        "LongFilter " + "[greaterThan=" + str + ", greaterOrEqualThan=" + str + ", lessThan=" + str
+        "ShortFilter " + "[greaterThan=" + str + ", greaterOrEqualThan=" + str + ", lessThan=" + str
             + ", " + "lessOrEqualThan=" + str + ", equals=" + str + ", specified=true, in=[]]");
   }
 }

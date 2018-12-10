@@ -1,4 +1,4 @@
-package com.openyich.framework.data.query;
+package com.openyich.framework.data.mapper.impl;
 
 import java.util.Collection;
 import java.util.Set;
@@ -24,7 +24,7 @@ import com.openyich.framework.data.filter.StringFilter;
  * @param <T> the type of the entity which is queried.
  */
 @Transactional(readOnly = true)
-public abstract class QueryService<T> {
+public abstract class AbastractQueryMapperImpl<T> {
 
   /**
    * Helper function to return a specification for filtering on a single field, where equality, and

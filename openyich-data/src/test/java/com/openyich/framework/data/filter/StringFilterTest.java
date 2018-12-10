@@ -1,4 +1,4 @@
-package com.openyich.framework.data.jpa.filter;
+package com.openyich.framework.data.filter;
 
 import com.google.common.collect.Lists;
 import com.openyich.framework.data.filter.Filter;
