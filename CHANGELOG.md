@@ -4,6 +4,7 @@
 
 - Supports for Spring Boot Actuator
 - Enhanced data processing
+- Refactoring Data Module
 
 ### 2.1.4
 
