@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.openyich.framework.data.config.SpringSecurityAuditorAware;
+import com.openyich.framework.data.commons.config.SpringSecurityAuditorAware;
 
 @Configuration
 @EnableConfigurationProperties({OpenYichDataProperties.class})
