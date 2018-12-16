@@ -14,7 +14,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Profile;
 import org.springframework.util.StopWatch;
 import org.springframework.web.servlet.DispatcherServlet;
@@ -24,7 +23,6 @@ import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
 import com.openyich.framework.boot.swagger.OpenYichSwaggerCustomizer;
 import com.openyich.framework.boot.swagger.SwaggerCustomizer;
 
-import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.schema.AlternateTypeRule;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
@@ -41,14 +39,12 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @ConditionalOnWebApplication
 @ConditionalOnClass({
   ApiInfo.class, 
-  BeanValidatorPluginsConfiguration.class, 
   Servlet.class,
   DispatcherServlet.class
 })
 @Profile(OpenYichConstants.SPRING_PROFILE_SWAGGER)
 @AutoConfigureAfter(OpenYichProperties.class)
 @EnableSwagger2
-@Import(BeanValidatorPluginsConfiguration.class)
 public class SwaggerConfiguration {
 
   static final String STARTING_MESSAGE = "Starting Swagger";

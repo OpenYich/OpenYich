@@ -1,5 +1,12 @@
 ## Changelog
 
+### 2.1.5
+
+- Supports for Spring Boot Actuator
+- Enhanced data processing
+- Upgrading Spring Boot dependency version to 2.1.1.RELEASE
+- Upgrading Spring Boot Admin dependency version to 2.1.1
+
 ### 2.1.4
 
 - Add openyich-data module
