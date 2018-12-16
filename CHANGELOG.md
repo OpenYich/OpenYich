@@ -1,5 +1,9 @@
 ## Changelog
 
+### 2.1.6 
+
+- Integrating Hazelcast
+
 ### 2.1.5
 
 - Supports for Spring Boot Actuator
