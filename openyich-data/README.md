@@ -17,8 +17,7 @@ Usage:
 
 ```
 @SpringBootApplication
-@EnableJpaRepositories({"com.openyich.framework.demo.repository"})
-@EntityScan({"com.openyich.framework.demo.domain"})
+@EnableJpaRepositoryBasic
 public class OpenyichApplication {
 
 }
@@ -26,7 +25,9 @@ public class OpenyichApplication {
 
 ## Configuration Properties
 
-Main configuration properties:
+Druid DataSource configuration:
+
+https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter
 
 ```
 spring:
