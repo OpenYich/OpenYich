@@ -4,7 +4,8 @@
 
 - Supports for Spring Boot Actuator
 - Enhanced data processing
-- Refactoring Data Module
+- Upgrading Spring Boot dependency version to 2.1.1.RELEASE
+- Upgrading Spring Boot Admin dependency version to 2.1.1
 
 ### 2.1.4
 

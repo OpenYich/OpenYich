@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>com.github.zhycn</groupId>
 		<artifactId>openyich-parent</artifactId>
-		<version>2.1.5-SNAPSHOT</version>
+		<version>2.1.5</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
@@ -29,6 +29,11 @@
 				<version>${openyich.version}</version>
 			</dependency>
 
+			<dependency>
+			    <groupId>javax.activation</groupId>
+			    <artifactId>javax.activation-api</artifactId>
+			    <version>${javax.activation-api.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
@@ -88,17 +93,6 @@
 				<groupId>org.apache.poi</groupId>
 				<artifactId>poi-scratchpad</artifactId>
 				<version>${apache.poi.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.apache.zookeeper</groupId>
-				<artifactId>zookeeper</artifactId>
-				<version>${apache.zookeeper.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.101tec</groupId>
-				<artifactId>zkclient</artifactId>
-				<version>${zkclient.version}</version>
 			</dependency>
 
 			<dependency>

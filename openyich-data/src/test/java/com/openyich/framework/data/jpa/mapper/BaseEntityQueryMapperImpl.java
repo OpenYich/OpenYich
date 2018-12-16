@@ -28,11 +28,11 @@ public class BaseEntityQueryMapperImpl extends JpaQueryMapperImpl<BaseEntity> {
     Specification<BaseEntity> specification = Specification.where(null);
     if (criteria != null) {
       if (criteria.getId() != null) {
-        specification = specification.and(buildSpecification(criteria.getId(), BaseEntity_.id));
+        specification = specification.and(buildSpecification(criteria.getId(), "id"));
       }
       if (criteria.getName() != null) {
         specification =
-            specification.and(buildStringSpecification(criteria.getName(), BaseEntity_.name));
+            specification.and(buildStringSpecification(criteria.getName(), "name"));
       }
     }
     return specification;

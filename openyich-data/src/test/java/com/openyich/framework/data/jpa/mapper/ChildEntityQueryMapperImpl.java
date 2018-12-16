@@ -22,7 +22,7 @@ public class ChildEntityQueryMapperImpl extends JpaQueryMapperImpl<ChildEntity> 
     Specification<ChildEntity> specification = Specification.where(null);
     if (criteria.getParentId() != null) {
       specification = specification.and(buildReferringEntitySpecification(criteria.getParentId(),
-          ChildEntity_.parent, ParentEntity_.id));
+          "parent", "id"));
     }
     return specification;
   }
