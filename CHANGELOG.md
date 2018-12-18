@@ -3,6 +3,7 @@
 ### 2.1.6 
 
 - Integrating Hazelcast
+- Merged data module
 
 ### 2.1.5
 

@@ -23,11 +23,6 @@
 				<artifactId>openyich-framework</artifactId>
 				<version>${openyich.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>com.github.zhycn</groupId>
-				<artifactId>openyich-data</artifactId>
-				<version>${openyich.version}</version>
-			</dependency>
 
 			<dependency>
 			    <groupId>javax.activation</groupId>
