@@ -19,10 +19,8 @@ import com.google.common.collect.Maps;
 public class OpenYichProperties {
 
   private final Async async = new Async();
-
+  
   private final Http http = new Http();
-
-  private final Cache cache = new Cache();
 
   private final Mail mail = new Mail();
 
@@ -48,10 +46,6 @@ public class OpenYichProperties {
 
   public Http getHttp() {
     return http;
-  }
-
-  public Cache getCache() {
-    return cache;
   }
 
   public Mail getMail() {
@@ -173,7 +167,7 @@ public class OpenYichProperties {
     }
 
   }
-
+  
   public static class Http {
 
     public enum Version {
@@ -204,159 +198,6 @@ public class OpenYichProperties {
 
     public void setUseUndertowUserCipherSuitesOrder(boolean useUndertowUserCipherSuitesOrder) {
       this.useUndertowUserCipherSuitesOrder = useUndertowUserCipherSuitesOrder;
-    }
-  }
-
-  public static class Cache {
-
-    private final Hazelcast hazelcast = new Hazelcast();
-
-    private final Ehcache ehcache = new Ehcache();
-
-    private final Memcached memcached = new Memcached();
-
-    public Hazelcast getHazelcast() {
-      return hazelcast;
-    }
-
-    public Ehcache getEhcache() {
-      return ehcache;
-    }
-
-    public Memcached getMemcached() {
-      return memcached;
-    }
-
-    public static class Hazelcast {
-
-      private int timeToLiveSeconds = 3600; // 1 hour
-
-      private int backupCount = 1;
-
-      private final ManagementCenter managementCenter = new ManagementCenter();
-
-      public ManagementCenter getManagementCenter() {
-        return managementCenter;
-      }
-
-      public static class ManagementCenter {
-
-        private boolean enabled = false;
-
-        private int updateInterval = 3;
-
-        private String url = "";
-
-        public boolean isEnabled() {
-          return enabled;
-        }
-
-        public void setEnabled(boolean enabled) {
-          this.enabled = enabled;
-        }
-
-        public int getUpdateInterval() {
-          return updateInterval;
-        }
-
-        public void setUpdateInterval(int updateInterval) {
-          this.updateInterval = updateInterval;
-        }
-
-        public String getUrl() {
-          return url;
-        }
-
-        public void setUrl(String url) {
-          this.url = url;
-        }
-
-      }
-
-      public int getTimeToLiveSeconds() {
-        return timeToLiveSeconds;
-      }
-
-      public void setTimeToLiveSeconds(int timeToLiveSeconds) {
-        this.timeToLiveSeconds = timeToLiveSeconds;
-      }
-
-      public int getBackupCount() {
-        return backupCount;
-      }
-
-      public void setBackupCount(int backupCount) {
-        this.backupCount = backupCount;
-      }
-    }
-
-    public static class Ehcache {
-
-      private int timeToLiveSeconds = 3600; // 1 hour
-
-      private long maxEntries = 100;
-
-      public int getTimeToLiveSeconds() {
-        return timeToLiveSeconds;
-      }
-
-      public void setTimeToLiveSeconds(int timeToLiveSeconds) {
-        this.timeToLiveSeconds = timeToLiveSeconds;
-      }
-
-      public long getMaxEntries() {
-        return maxEntries;
-      }
-
-      public void setMaxEntries(long maxEntries) {
-        this.maxEntries = maxEntries;
-      }
-    }
-
-    public static class Memcached {
-
-      private boolean enabled = false;
-
-      /**
-       * Comma or whitespace separated list of servers' addresses.
-       */
-      private String servers = "localhost:11211";
-
-      private int expiration = 300; // 5 minutes
-
-      private boolean useBinaryProtocol = true;
-
-      public boolean isEnabled() {
-        return enabled;
-      }
-
-      public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-      }
-
-      public String getServers() {
-        return servers;
-      }
-
-      public void setServers(String servers) {
-        this.servers = servers;
-      }
-
-      public int getExpiration() {
-        return expiration;
-      }
-
-      public void setExpiration(int expiration) {
-        this.expiration = expiration;
-      }
-
-      public boolean isUseBinaryProtocol() {
-        return useBinaryProtocol;
-      }
-
-      public void setUseBinaryProtocol(boolean useBinaryProtocol) {
-        this.useBinaryProtocol = useBinaryProtocol;
-      }
     }
   }
 
