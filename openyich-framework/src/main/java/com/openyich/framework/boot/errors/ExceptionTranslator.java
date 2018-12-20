@@ -1,5 +1,6 @@
 package com.openyich.framework.boot.errors;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.zalando.problem.spring.web.advice.ProblemHandling;
@@ -10,6 +11,7 @@ import org.zalando.problem.spring.web.advice.ProblemHandling;
  * (https://tools.ietf.org/html/rfc7807)
  */
 @Configuration
+@ConditionalOnMissingBean(ProblemHandling.class)
 @RestControllerAdvice
 public class ExceptionTranslator implements ProblemHandling {
 

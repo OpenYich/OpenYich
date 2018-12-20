@@ -1,5 +1,10 @@
 ## Changelog
 
+### 2.1.7
+
+- Add Spring MVC Response Wrapper
+- Enhanced global exception handler
+
 ### 2.1.6 
 
 - Integrating Hazelcast
