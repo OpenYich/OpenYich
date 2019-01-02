@@ -82,6 +82,7 @@
 		<oracle-jdbc.version>18.3.0.0</oracle-jdbc.version>
 		<prometheus-simpleclient.version>0.5.0</prometheus-simpleclient.version>
 		<reflections.version>0.9.11</reflections.version>
+		<thumbnailator.version>0.4.8</thumbnailator.version>
 		<zalando.version>0.23.0</zalando.version>
 
 		<!-- Dependency versions based on Spring IO Platform vCairo-SR5 -->

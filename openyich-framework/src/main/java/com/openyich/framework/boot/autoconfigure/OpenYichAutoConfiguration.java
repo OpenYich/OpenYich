@@ -7,13 +7,13 @@ import org.springframework.context.annotation.Import;
 
 import com.openyich.framework.boot.config.AsyncConfiguration;
 import com.openyich.framework.boot.config.DateTimeFormatConfiguration;
+import com.openyich.framework.boot.config.ExceptionTranslator;
 import com.openyich.framework.boot.config.HttpHeadersTranslator;
 import com.openyich.framework.boot.config.JacksonConfiguration;
 import com.openyich.framework.boot.config.LocaleConfiguration;
+import com.openyich.framework.boot.config.ProblemResponseBodyAdvice;
 import com.openyich.framework.boot.config.SwaggerConfiguration;
 import com.openyich.framework.boot.config.WebConfigurer;
-import com.openyich.framework.boot.errors.ExceptionTranslator;
-import com.openyich.framework.boot.errors.ProblemResponseBodyAdvice;
 import com.openyich.framework.boot.hazelcast.HazelcastCacheConfiguration;
 import com.openyich.framework.boot.security.ssl.UndertowSSLConfiguration;
 import com.openyich.framework.boot.security.uaa.UaaConfiguration;

@@ -187,6 +187,11 @@
 				<artifactId>reflections</artifactId>
 				<version>${reflections.version}</version>
 			</dependency>
+			<dependency>
+			    <groupId>net.coobird</groupId>
+			    <artifactId>thumbnailator</artifactId>
+			    <version>${thumbnailator.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 

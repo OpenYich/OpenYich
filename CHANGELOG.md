@@ -2,8 +2,8 @@
 
 ### 2.1.7
 
-- Add Spring MVC Response Wrapper
 - Enhanced global exception handler
+- Add Thumbnailator helper tool
 
 ### 2.1.6 
 

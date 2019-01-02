@@ -1,4 +1,4 @@
-package com.openyich.framework.boot.errors;
+package com.openyich.framework.boot.config;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Configuration;

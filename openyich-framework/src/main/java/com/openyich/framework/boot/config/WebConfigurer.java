@@ -26,7 +26,6 @@ import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
 
 import io.undertow.UndertowOptions;
 
-
 /**
  * Configuration of web application with Servlet 3.0 APIs.
  */
