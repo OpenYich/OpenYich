@@ -1,5 +1,6 @@
 package com.openyich.framework.boot.config;
 
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
@@ -17,13 +18,14 @@ import com.openyich.framework.boot.aware.ResponseBodyAware;
 @Configuration
 @ConditionalOnWebApplication
 @ConditionalOnBean(ResponseBodyAware.class)
+@AutoConfigureAfter(ResponseBodyAware.class)
 @ConditionalOnMissingBean(name = "problemResponseBodyAdvice")
 @RestControllerAdvice
 public class ProblemResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
   private ResponseBodyAware responseBodyAware;
 
-  private ProblemResponseBodyAdvice(ResponseBodyAware responseBodyAware) {
+  public ProblemResponseBodyAdvice(ResponseBodyAware responseBodyAware) {
     this.responseBodyAware = responseBodyAware;
   }
 
@@ -37,7 +39,7 @@ public class ProblemResponseBodyAdvice implements ResponseBodyAdvice<Object> {
   public Object beforeBodyWrite(Object body, MethodParameter returnType,
       MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType,
       ServerHttpRequest request, ServerHttpResponse response) {
-    return responseBodyAware.convert(body);
+    return responseBodyAware.handle(body, request, response);
   }
 
 }

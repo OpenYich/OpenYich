@@ -96,5 +96,5 @@ public class WebConfigurer
     source.setCorsConfigurations(openYichProperties.getCors());
     return new CorsFilter(source);
   }
-
+  
 }

@@ -17,6 +17,9 @@ import com.openyich.framework.boot.config.WebConfigurer;
 import com.openyich.framework.boot.hazelcast.HazelcastCacheConfiguration;
 import com.openyich.framework.boot.security.ssl.UndertowSSLConfiguration;
 import com.openyich.framework.boot.security.uaa.UaaConfiguration;
+import com.openyich.framework.boot.web.DefaultHttpHeadersAware;
+import com.openyich.framework.boot.web.DefaultResponseBodyAware;
+import com.openyich.framework.boot.web.DefaultResponseWordsAware;
 
 /**
  * OpenYich Auto-configuration
@@ -27,6 +30,9 @@ import com.openyich.framework.boot.security.uaa.UaaConfiguration;
 @Import({
   AsyncConfiguration.class, 
   DateTimeFormatConfiguration.class,
+  DefaultHttpHeadersAware.class,
+  DefaultResponseBodyAware.class,
+  DefaultResponseWordsAware.class,
   ExceptionTranslator.class,
   HazelcastCacheConfiguration.class,
   HttpHeadersTranslator.class,

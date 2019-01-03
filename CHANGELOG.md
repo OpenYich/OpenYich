@@ -3,6 +3,7 @@
 ### 2.1.7
 
 - Enhanced global exception handler
+- Enhanced Controller layers
 - Add Thumbnailator helper tool
 
 ### 2.1.6 

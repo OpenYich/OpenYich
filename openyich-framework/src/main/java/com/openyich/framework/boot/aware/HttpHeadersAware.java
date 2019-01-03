@@ -7,9 +7,7 @@ import org.springframework.http.HttpHeaders;
 
 public interface HttpHeadersAware {
 
-  default boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-      HttpHeaders httpHeaders) {
-    return true;
-  }
+  boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+      HttpHeaders httpHeaders);
 
 }
