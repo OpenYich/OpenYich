@@ -11,14 +11,13 @@ This project provides a pom file that you can either import into your Spring Boo
 
 The OpenYich BOM uses Maven's support for dependency management to provide dependency versions to your Spring Boot Application's build. To consume this dependency management you can import into your Spring Boot Application's pom: 
 
-
 ```
 <dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>com.github.zhycn</groupId>
             <artifactId>openyich-dependencies</artifactId>
-            <version>2.1.7-SNAPSHOT</version>
+            <version>2.1.7</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
@@ -32,7 +31,7 @@ Alternatively, rather than importing the OpenYich BOM, you may prefer to use it 
 <parent>
     <groupId>com.github.zhycn</groupId>
     <artifactId>openyich-dependencies</artifactId>
-    <version>2.1.7-SNAPSHOT</version>
+    <version>2.1.7</version>
     <relativePath/>
 </parent>
 ```

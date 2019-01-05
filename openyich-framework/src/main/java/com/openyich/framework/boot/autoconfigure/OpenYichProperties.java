@@ -591,54 +591,56 @@ public class OpenYichProperties {
 
   public static class Logging {
 
-    private final Logstash logstash = new Logstash();
+    private String path = ".";
+    
+    private String level = "INFO";
+    
+    private String maxFileSize = "100MB";
+    
+    private String maxHistory = "30";
+    
+    private String totalSizeCap = "50GB";
 
-    public Logstash getLogstash() {
-      return logstash;
+    public String getPath() {
+      return path;
     }
 
-    public static class Logstash {
-
-      private boolean enabled = false;
-
-      private String host = "localhost";
-
-      private int port = 5000;
-
-      private int queueSize = 512;
-
-      public boolean isEnabled() {
-        return enabled;
-      }
-
-      public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-      }
-
-      public String getHost() {
-        return host;
-      }
-
-      public void setHost(String host) {
-        this.host = host;
-      }
-
-      public int getPort() {
-        return port;
-      }
-
-      public void setPort(int port) {
-        this.port = port;
-      }
-
-      public int getQueueSize() {
-        return queueSize;
-      }
-
-      public void setQueueSize(int queueSize) {
-        this.queueSize = queueSize;
-      }
+    public String getLevel() {
+      return level;
     }
+
+    public String getMaxFileSize() {
+      return maxFileSize;
+    }
+
+    public String getMaxHistory() {
+      return maxHistory;
+    }
+
+    public String getTotalSizeCap() {
+      return totalSizeCap;
+    }
+
+    public void setPath(String path) {
+      this.path = path;
+    }
+
+    public void setLevel(String level) {
+      this.level = level;
+    }
+
+    public void setMaxFileSize(String maxFileSize) {
+      this.maxFileSize = maxFileSize;
+    }
+
+    public void setMaxHistory(String maxHistory) {
+      this.maxHistory = maxHistory;
+    }
+
+    public void setTotalSizeCap(String totalSizeCap) {
+      this.totalSizeCap = totalSizeCap;
+    }
+    
   }
 
   public static class Social {

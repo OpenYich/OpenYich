@@ -1,9 +1,9 @@
 <configuration>
-	<property name="LOG_PATH" value="." />
-	<property name="LOG_LEVEL" value="INFO" />
-	<property name="LOG_MAX_FILE_SIZE" value="100MB" />
-	<property name="LOG_MAX_HISTORY" value="30" />
-	<property name="LOG_TOTAL_SIZE_CAP" value="50GB" />
+	<springProperty scope="context" name="LOG_PATH" source="openyich.logging.path" defaultValue="."/>
+	<springProperty scope="context" name="LOG_LEVEL" source="openyich.logging.level" defaultValue="INFO"/>
+	<springProperty scope="context" name="LOG_MAX_FILE_SIZE" source="openyich.logging.max-file-size" defaultValue="100MB"/>
+	<springProperty scope="context" name="LOG_MAX_HISTORY" source="openyich.logging.max-history" defaultValue="30"/>
+	<springProperty scope="context" name="LOG_TOTAL_SIZE_CAP" source="openyich.logging.total-size-cap" defaultValue="50GB"/>
 
 	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
 	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
@@ -90,7 +90,6 @@
 		</filter>
 	</appender>
 
-	<logger name="org.springframework" level="INFO" />
 	<logger name="javax.activation" level="WARN"/>
     <logger name="javax.mail" level="WARN"/>
     <logger name="javax.management.remote" level="WARN"/>
@@ -106,9 +105,10 @@
     <logger name="org.apache.catalina.startup.DigesterFactory" level="OFF"/>
     <logger name="org.bson" level="WARN"/>
     <logger name="org.hibernate.validator" level="WARN"/>
-    <logger name="org.hibernate" level="WARN"/>
+    <logger name="org.hibernate" level="INFO"/>
     <logger name="org.hibernate.ejb.HibernatePersistence" level="OFF"/>
     <logger name="org.springframework" level="WARN"/>
+    <logger name="org.springframework.boot" level="INFO"/>
     <logger name="org.springframework.web" level="WARN"/>
     <logger name="org.springframework.security" level="WARN"/>
     <logger name="org.springframework.cache" level="WARN"/>

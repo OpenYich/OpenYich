@@ -398,46 +398,6 @@ public class OpenYichPropertiesTest {
   }
 
   @Test
-  public void testLoggingLogstashEnabled() {
-    OpenYichProperties.Logging.Logstash obj = properties.getLogging().getLogstash();
-    boolean val = false;
-    assertThat(obj.isEnabled()).isEqualTo(val);
-    val = !val;
-    obj.setEnabled(val);
-    assertThat(obj.isEnabled()).isEqualTo(val);
-  }
-
-  @Test
-  public void testLoggingLogstashHost() {
-    OpenYichProperties.Logging.Logstash obj = properties.getLogging().getLogstash();
-    String val = "localhost";
-    assertThat(obj.getHost()).isEqualTo(val);
-    val = "1" + val;
-    obj.setHost(val);
-    assertThat(obj.getHost()).isEqualTo(val);
-  }
-
-  @Test
-  public void testLoggingLogstashPort() {
-    OpenYichProperties.Logging.Logstash obj = properties.getLogging().getLogstash();
-    int val = 5000;
-    assertThat(obj.getPort()).isEqualTo(val);
-    val++;
-    obj.setPort(val);
-    assertThat(obj.getPort()).isEqualTo(val);
-  }
-
-  @Test
-  public void testLoggingLogstashQueueSize() {
-    OpenYichProperties.Logging.Logstash obj = properties.getLogging().getLogstash();
-    int val = 512;
-    assertThat(obj.getQueueSize()).isEqualTo(val);
-    val++;
-    obj.setQueueSize(val);
-    assertThat(obj.getQueueSize()).isEqualTo(val);
-  }
-
-  @Test
   public void testSocialRedirectAfterSignIn() {
     OpenYichProperties.Social obj = properties.getSocial();
     String val = "/#/home";
