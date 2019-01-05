@@ -6,6 +6,7 @@
 - Enhanced Controller layers
 - Add Thumbnailator helper tool
 - Remove JPA Strong dependence
+- Add logback-spring.xml
 
 ### 2.1.6 
 
