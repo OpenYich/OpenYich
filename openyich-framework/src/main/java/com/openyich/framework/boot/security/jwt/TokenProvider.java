@@ -14,9 +14,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
 
+import com.google.common.base.Strings;
 import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
 import com.openyich.framework.boot.autoconfigure.OpenYichProperties.Security.Authentication.Jwt;
-import com.openyich.framework.boot.utils.OpenYichAssert;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -37,18 +37,14 @@ public class TokenProvider {
 
   public TokenProvider(OpenYichProperties openYichProperties) {
     Jwt jwt = openYichProperties.getSecurity().getAuthentication().getJwt();
+    this.secret = jwt.getBase64Secret();
 
-    try {
-      this.secret = OpenYichAssert.notNullWithFailover(() -> {
-        log.debug("Using a Base64-encoded JWT secret key");
-        return jwt.getBase64Secret();
-      }, () -> {
-        log.warn("Warning: the JWT secret key used is not Base64-encoded. "
-            + "We recommend using the `openyich.security.authentication.jwt.base64-secret` key for optimum security.");
-        return jwt.getSecret();
-      });
-    } catch (Exception e) {
-      log.error("the JWT secret key must not be null.", e);
+    if (!Strings.isNullOrEmpty(secret)) {
+      log.debug("Using a Base64-encoded JWT secret key");
+    } else {
+      log.warn("Warning: the JWT secret key used is not Base64-encoded. "
+          + "We recommend using the `openyich.security.authentication.jwt.base64-secret` key for optimum security.");
+      this.secret = jwt.getSecret();
     }
 
     this.tokenValidityInMilliseconds = 1000 * jwt.getTokenValidityInSeconds();

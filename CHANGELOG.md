@@ -1,5 +1,13 @@
 ## Changelog
 
+### 2.1.7
+
+- Enhanced global exception handler
+- Enhanced Controller layers
+- Add Thumbnailator helper tool
+- Remove JPA Strong dependence
+- Add logback-spring.xml
+
 ### 2.1.6 
 
 - Integrating Hazelcast

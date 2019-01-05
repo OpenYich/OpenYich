@@ -1,0 +1,141 @@
+<configuration>
+	<property name="LOG_PATH" value="." />
+	<property name="LOG_LEVEL" value="INFO" />
+	<property name="LOG_MAX_FILE_SIZE" value="100MB" />
+	<property name="LOG_MAX_HISTORY" value="30" />
+	<property name="LOG_TOTAL_SIZE_CAP" value="50GB" />
+
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${CONSOLE_LOG_PATTERN}</pattern>
+			<charset>utf8</charset>
+		</encoder>
+	</appender>
+
+	<appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/logs/error.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/logs/backup/error.%d{yyyyMMdd}.%i.log.gz</fileNamePattern>
+			<maxFileSize>${LOG_MAX_FILE_SIZE}</maxFileSize>
+			<maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+			<totalSizeCap>${LOG_TOTAL_SIZE_CAP}</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${CONSOLE_LOG_PATTERN}</pattern>
+			<charset>utf8</charset>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+
+	<appender name="WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/logs/warn.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/logs/backup/warn.%d{yyyyMMdd}.%i.log.gz</fileNamePattern>
+			<maxFileSize>${LOG_MAX_FILE_SIZE}</maxFileSize>
+			<maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+			<totalSizeCap>${LOG_TOTAL_SIZE_CAP}</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${CONSOLE_LOG_PATTERN}</pattern>
+			<charset>utf8</charset>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>WARN</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+
+	<appender name="DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/logs/debug.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/logs/backup/debug.%d{yyyyMMdd}.%i.log.gz
+			</fileNamePattern>
+			<maxFileSize>${LOG_MAX_FILE_SIZE}</maxFileSize>
+			<maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+			<totalSizeCap>${LOG_TOTAL_SIZE_CAP}</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${CONSOLE_LOG_PATTERN}</pattern>
+			<charset>utf8</charset>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>DEBUG</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+
+	<appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/logs/info.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/logs/backup/info.%d{yyyyMMdd}.%i.log.gz</fileNamePattern>
+			<maxFileSize>${LOG_MAX_FILE_SIZE}</maxFileSize>
+			<maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+			<totalSizeCap>${LOG_TOTAL_SIZE_CAP}</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${CONSOLE_LOG_PATTERN}</pattern>
+			<charset>utf8</charset>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+
+	<logger name="org.springframework" level="INFO" />
+	<logger name="javax.activation" level="WARN"/>
+    <logger name="javax.mail" level="WARN"/>
+    <logger name="javax.management.remote" level="WARN"/>
+    <logger name="javax.xml.bind" level="WARN"/>
+    <logger name="ch.qos.logback" level="WARN"/>
+    <logger name="com.codahale.metrics" level="WARN"/>
+    <logger name="com.ryantenney" level="WARN"/>
+    <logger name="com.sun" level="WARN"/>
+    <logger name="com.zaxxer" level="WARN"/>
+    <logger name="io.undertow" level="WARN"/>
+    <logger name="io.undertow.websockets.jsr" level="ERROR"/>
+    <logger name="org.apache" level="WARN"/>
+    <logger name="org.apache.catalina.startup.DigesterFactory" level="OFF"/>
+    <logger name="org.bson" level="WARN"/>
+    <logger name="org.hibernate.validator" level="WARN"/>
+    <logger name="org.hibernate" level="WARN"/>
+    <logger name="org.hibernate.ejb.HibernatePersistence" level="OFF"/>
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.springframework.web" level="WARN"/>
+    <logger name="org.springframework.security" level="WARN"/>
+    <logger name="org.springframework.cache" level="WARN"/>
+    <logger name="org.thymeleaf" level="WARN"/>
+    <logger name="org.xnio" level="WARN"/>
+    <logger name="springfox" level="WARN"/>
+    <logger name="sun.rmi" level="WARN"/>
+    <logger name="liquibase" level="WARN"/>
+    <logger name="LiquibaseSchemaResolver" level="INFO"/>
+    <logger name="sun.rmi.transport" level="WARN"/>
+
+	<springProfile name="dev,console">
+		<root level="${LOG_LEVEL}">
+			<appender-ref ref="CONSOLE" />
+		</root>
+	</springProfile>
+	<springProfile name="test,prod,task,cloud">
+		<root level="${LOG_LEVEL}">
+			<appender-ref ref="ERROR" />
+			<appender-ref ref="WARN" />
+			<appender-ref ref="INFO" />
+		</root>
+	</springProfile>
+	<springProfile name="debug">
+		<root level="DEBUG">
+			<appender-ref ref="DEBUG" />
+		</root>
+	</springProfile>
+
+</configuration>

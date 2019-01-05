@@ -1,13 +1,13 @@
-package com.openyich.framework.boot.web;
+package com.openyich.framework.boot.aware;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.http.HttpHeaders;
 
-public interface HttpHeadersConfigurer {
+public interface HttpHeadersAware {
 
-  void handle(HttpServletRequest request, HttpServletResponse response, Object handler,
+  boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
       HttpHeaders httpHeaders);
 
 }

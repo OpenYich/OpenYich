@@ -7,7 +7,11 @@ public class InvalidPasswordException extends OpenYichThrowableProblem {
   private static final long serialVersionUID = 1L;
 
   public InvalidPasswordException() {
-    super("Incorrect password", Status.BAD_REQUEST);
+    this(null);
+  }
+  
+  public InvalidPasswordException(String message) {
+    super("Incorrect password", Status.BAD_REQUEST, message);
   }
 
 }
