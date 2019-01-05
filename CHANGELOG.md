@@ -5,6 +5,7 @@
 - Enhanced global exception handler
 - Enhanced Controller layers
 - Add Thumbnailator helper tool
+- Remove JPA Strong dependence
 
 ### 2.1.6 
 

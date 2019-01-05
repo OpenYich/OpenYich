@@ -18,7 +18,6 @@
 	<url>https://github.com/OpenYich/OpenYich/</url>
 
 	<dependencies>
-		<!-- Default dependency versions -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -95,7 +94,21 @@
 			<artifactId>jackson-module-afterburner</artifactId>
 		</dependency>
 
-		<!-- Optional dependency versions -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>aspectjrt</artifactId>
+					<groupId>org.aspectj</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jcl-over-slf4j</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
 		<dependency>
 			<groupId>com.hazelcast</groupId>
 			<artifactId>hazelcast-all</artifactId>
@@ -127,7 +140,6 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- Support the configuration and testing -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>

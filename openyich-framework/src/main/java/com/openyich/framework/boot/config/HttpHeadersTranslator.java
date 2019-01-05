@@ -35,13 +35,11 @@ public class HttpHeadersTranslator implements WebMvcConfigurer {
           Object handler) throws Exception {
         Enumeration<String> parameterNames = request.getParameterNames();
         HttpHeaders httpHeaders = new HttpHeaders();
-
         while (parameterNames.hasMoreElements()) {
           String headerName = parameterNames.nextElement();
           String headerValue = request.getParameter(headerName);
           httpHeaders.add(headerName, headerValue);
         }
-
         return httpHeadersAware.preHandle(request, response, handler, httpHeaders);
       }
     });

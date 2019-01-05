@@ -1,17 +1,14 @@
 package com.openyich.framework.boot.config;
 
-import org.springframework.context.annotation.AdviceMode;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.openyich.framework.boot.config.SpringSecurityAuditorAware;
-
 @Configuration
-@EnableTransactionManagement(mode = AdviceMode.ASPECTJ, proxyTargetClass = true)
 @EnableJpaAuditing(auditorAwareRef = "springSecurityAuditorAware")
+@EnableTransactionManagement
 @Import({SpringSecurityAuditorAware.class})
-public class JpaRepositoryConfiguration {
+public class DatabaseConfiguration {
 
 }
