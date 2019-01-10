@@ -19,22 +19,24 @@ public class OpenYichAsyncConfigurer implements AsyncConfigurer {
 
   private static final Logger log = LoggerFactory.getLogger(OpenYichAsyncConfigurer.class);
 
-  private OpenYichProperties.Async properties;
+  private static final String EXCEPTION_MESSAGE = "Caught async exception";
+  
+  private OpenYichProperties.Async asyncProperties;
 
   public OpenYichAsyncConfigurer(OpenYichProperties openYichProperties) {
-    this.properties = openYichProperties.getAsync();
+    this.asyncProperties = openYichProperties.getAsync();
   }
 
   public AsyncTaskExecutor create() {
     ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-    executor.setCorePoolSize(properties.getCorePoolSize());
-    executor.setMaxPoolSize(properties.getMaxPoolSize());
-    executor.setQueueCapacity(properties.getQueueCapacity());
-    executor.setAllowCoreThreadTimeOut(properties.isAllowCoreThreadTimeOut());
-    executor.setWaitForTasksToCompleteOnShutdown(properties.isAllowCoreThreadTimeOut());
-    executor.setAwaitTerminationSeconds(properties.getAwaitTerminationSeconds());
-    executor.setKeepAliveSeconds(properties.getKeepAliveSeconds());
-    executor.setThreadNamePrefix(properties.getThreadNamePrefix());
+    executor.setCorePoolSize(asyncProperties.getCorePoolSize());
+    executor.setMaxPoolSize(asyncProperties.getMaxPoolSize());
+    executor.setQueueCapacity(asyncProperties.getQueueCapacity());
+    executor.setAllowCoreThreadTimeOut(asyncProperties.isAllowCoreThreadTimeOut());
+    executor.setWaitForTasksToCompleteOnShutdown(asyncProperties.isWaitForJobsToCompleteOnShutdown());
+    executor.setAwaitTerminationSeconds(asyncProperties.getAwaitTerminationSeconds());
+    executor.setKeepAliveSeconds(asyncProperties.getKeepAliveSeconds());
+    executor.setThreadNamePrefix(asyncProperties.getThreadNamePrefix());
     executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
     executor.initialize();
     return executor;
@@ -47,7 +49,11 @@ public class OpenYichAsyncConfigurer implements AsyncConfigurer {
 
   @Override
   public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
-    return (ex, method, params) -> log.error("Caught async exception", ex);
+    return (e, method, params) -> handle(e);
+  }
+
+  protected void handle(Throwable e) {
+    log.error(EXCEPTION_MESSAGE, e);
   }
 
 }

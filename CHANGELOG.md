@@ -1,5 +1,12 @@
 ## Changelog
 
+### 2.1.8 
+
+- Add common query value object
+- Upgrading Specifications
+- Upgrading Async configuration
+- Optimizing OpenYichProperties
+
 ### 2.1.7
 
 - Enhanced global exception handler

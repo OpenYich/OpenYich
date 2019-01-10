@@ -93,7 +93,7 @@ public abstract class BaseController {
 
   protected static <T> ResponseVO<List<T>> pageable(Page<T> page,
       @Nullable MultiValueMap<String, String> headers) {
-    Map<String, Object> extData = Maps.newConcurrentMap();
+    Map<String, Object> extData = Maps.newHashMap();
     extData.put("isFirst", page.isFirst());
     extData.put("isLast", page.isLast());
     extData.put("hasNext", page.hasNext());

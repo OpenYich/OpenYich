@@ -18,48 +18,48 @@ public class OpenYichAsyncTaskExecutor
       InitializingBean,
       DisposableBean {
 
-  static final String EXCEPTION_MESSAGE = "Caught async exception";
-  
   private static final Logger log = LoggerFactory.getLogger(OpenYichAsyncTaskExecutor.class);
-  
-  private final AsyncTaskExecutor executor;
 
-  public OpenYichAsyncTaskExecutor(AsyncTaskExecutor executor) {
-    this.executor = executor;
+  public static final String EXCEPTION_MESSAGE = "Caught async exception";
+
+  private final AsyncTaskExecutor taskExecutor;
+
+  public OpenYichAsyncTaskExecutor(AsyncTaskExecutor taskExecutor) {
+    this.taskExecutor = taskExecutor;
   }
 
   @Override
   public void execute(Runnable task) {
-    executor.execute(createWrappedRunnable(task));
+    taskExecutor.execute(createWrappedRunnable(task));
   }
 
   @Override
   public void execute(Runnable task, long startTimeout) {
-    executor.execute(createWrappedRunnable(task), startTimeout);
+    taskExecutor.execute(createWrappedRunnable(task), startTimeout);
   }
 
   @Override
   public Future<?> submit(Runnable task) {
-    return executor.submit(createWrappedRunnable(task));
+    return taskExecutor.submit(createWrappedRunnable(task));
   }
 
   @Override
   public <T> Future<T> submit(Callable<T> task) {
-    return executor.submit(createCallable(task));
+    return taskExecutor.submit(createCallable(task));
   }
 
   @Override
   public void destroy() throws Exception {
-    if (executor instanceof DisposableBean) {
-      DisposableBean bean = (DisposableBean) executor;
+    if (taskExecutor instanceof DisposableBean) {
+      DisposableBean bean = (DisposableBean) taskExecutor;
       bean.destroy();
     }
   }
 
   @Override
   public void afterPropertiesSet() throws Exception {
-    if (executor instanceof InitializingBean) {
-      InitializingBean bean = (InitializingBean) executor;
+    if (taskExecutor instanceof InitializingBean) {
+      InitializingBean bean = (InitializingBean) taskExecutor;
       bean.afterPropertiesSet();
     }
   }
@@ -85,7 +85,7 @@ public class OpenYichAsyncTaskExecutor
     };
   }
 
-  protected void handle(Exception e) {
+  protected void handle(Throwable e) {
     log.error(EXCEPTION_MESSAGE, e);
   }
 

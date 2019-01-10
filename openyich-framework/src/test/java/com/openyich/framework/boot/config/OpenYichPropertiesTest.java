@@ -100,35 +100,6 @@ public class OpenYichPropertiesTest {
     assertThat(obj.isUseUndertowUserCipherSuitesOrder()).isEqualTo(val);
   }
 
-  @Test
-  public void testMailFrom() {
-    OpenYichProperties.Mail obj = properties.getMail();
-    String val = "";
-    assertThat(obj.getFrom()).isEqualTo(val);
-    val = "1" + val;
-    obj.setFrom(val);
-    assertThat(obj.getFrom()).isEqualTo(val);
-  }
-
-  @Test
-  public void testMailBaseUrl() {
-    OpenYichProperties.Mail obj = properties.getMail();
-    String val = "";
-    assertThat(obj.getBaseUrl()).isEqualTo(val);
-    val = "1" + val;
-    obj.setBaseUrl(val);
-    assertThat(obj.getBaseUrl()).isEqualTo(val);
-  }
-
-  @Test
-  public void testMailEnabled() {
-    OpenYichProperties.Mail obj = properties.getMail();
-    boolean val = false;
-    assertThat(obj.isEnabled()).isEqualTo(val);
-    val = !val;
-    obj.setEnabled(val);
-    assertThat(obj.isEnabled()).isEqualTo(val);
-  }
 
   @Test
   public void testSecurityClientAuthorizationAccessTokenUri() {
@@ -349,65 +320,6 @@ public class OpenYichPropertiesTest {
   }
 
   @Test
-  public void testMetricsJmxEnabled() {
-    OpenYichProperties.Metrics.Jmx obj = properties.getMetrics().getJmx();
-    boolean val = true;
-    assertThat(obj.isEnabled()).isEqualTo(val);
-    val = !val;
-    obj.setEnabled(val);
-    assertThat(obj.isEnabled()).isEqualTo(val);
-  }
-
-  @Test
-  public void testMetricsLogsEnabled() {
-    OpenYichProperties.Metrics.Logs obj = properties.getMetrics().getLogs();
-    boolean val = false;
-    assertThat(obj.isEnabled()).isEqualTo(val);
-    val = !val;
-    obj.setEnabled(val);
-    assertThat(obj.isEnabled()).isEqualTo(val);
-  }
-
-  @Test
-  public void testMetricsLogsReportFrequency() {
-    OpenYichProperties.Metrics.Logs obj = properties.getMetrics().getLogs();
-    long val = 60;
-    assertThat(obj.getReportFrequency()).isEqualTo(val);
-    val++;
-    obj.setReportFrequency(val);
-    assertThat(obj.getReportFrequency()).isEqualTo(val);
-  }
-
-  @Test
-  public void testMetricsPrometheusEnabled() {
-    OpenYichProperties.Metrics.Prometheus obj = properties.getMetrics().getPrometheus();
-    boolean val = false;
-    assertThat(obj.isEnabled()).isEqualTo(val);
-    val = !val;
-    obj.setEnabled(val);
-    assertThat(obj.isEnabled()).isEqualTo(val);
-  }
-
-  @Test
-  public void testMetricsPrometheusEndpoint() {
-    OpenYichProperties.Metrics.Prometheus obj = properties.getMetrics().getPrometheus();
-    String val = "/prometheusMetrics";
-    assertThat(obj.getEndpoint()).isEqualTo(val);
-    obj.setEndpoint(val);
-    assertThat(obj.getEndpoint()).isEqualTo(val);
-  }
-
-  @Test
-  public void testSocialRedirectAfterSignIn() {
-    OpenYichProperties.Social obj = properties.getSocial();
-    String val = "/#/home";
-    assertThat(obj.getRedirectAfterSignIn()).isEqualTo(val);
-    val = "1" + val;
-    obj.setRedirectAfterSignIn(val);
-    assertThat(obj.getRedirectAfterSignIn()).isEqualTo(val);
-  }
-
-  @Test
   public void testGatewayAuthorizedMicroservicesEndpoints() {
     OpenYichProperties.Gateway obj = properties.getGateway();
     Map<String, List<String>> val = new LinkedHashMap<>();
@@ -445,16 +357,6 @@ public class OpenYichPropertiesTest {
     val++;
     obj.setDurationInSeconds(val);
     assertThat(obj.getDurationInSeconds()).isEqualTo(val);
-  }
-
-  @Test
-  public void testRegistryPassword() {
-    OpenYichProperties.Registry obj = properties.getRegistry();
-    String val = null;
-    assertThat(obj.getPassword()).isEqualTo(val);
-    val = "1" + val;
-    obj.setPassword(val);
-    assertThat(obj.getPassword()).isEqualTo(val);
   }
 
 }

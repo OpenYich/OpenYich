@@ -1,12 +1,19 @@
 package com.openyich.framework.boot.vo;
 
+import java.io.Serializable;
+import java.util.Map;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.lang.Nullable;
 
 import com.alibaba.fastjson.JSON;
+import com.google.common.collect.Maps;
 
-public class ResponseVO<T> extends OpenYichObject {
+/**
+ * Base class for Spring MVC Response types.
+ */
+public class ResponseVO<T> implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
@@ -18,6 +25,12 @@ public class ResponseVO<T> extends OpenYichObject {
   private T data;
   
   private HttpHeaders headers;
+  
+  private Map<String, Object> extData = Maps.newHashMap();
+
+  public void add(String key, Object value) {
+    this.getExtData().put(key, value);
+  }
 
   public String getCode() {
     return code;
@@ -25,6 +38,10 @@ public class ResponseVO<T> extends OpenYichObject {
 
   public T getData() {
     return data;
+  }
+
+  public Map<String, Object> getExtData() {
+    return extData;
   }
 
   public HttpHeaders getHeaders() {
@@ -45,6 +62,10 @@ public class ResponseVO<T> extends OpenYichObject {
 
   public void setData(T data) {
     this.data = data;
+  }
+
+  public void setExtData(Map<String, Object> extData) {
+    this.getExtData().putAll(extData);
   }
 
   public void setHeaders(HttpHeaders headers) {

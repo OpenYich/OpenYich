@@ -6,12 +6,12 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
-public class OpenYichExecutor {
+public class OpenYichTaskExecutor {
 
   private OpenYichAsyncTaskExecutor taskExecutor;
   private ScheduledExecutorService scheduledExecutor;
 
-  public OpenYichExecutor(OpenYichAsyncTaskExecutor taskExecutor,
+  public OpenYichTaskExecutor(OpenYichAsyncTaskExecutor taskExecutor,
       ScheduledExecutorService scheduledExecutor) {
     this.taskExecutor = taskExecutor;
     this.scheduledExecutor = scheduledExecutor;
