@@ -6,6 +6,7 @@
 - Upgrading Specifications
 - Upgrading Async configuration
 - Optimizing OpenYichProperties
+- Modified Exception classes
 
 ### 2.1.7
 
