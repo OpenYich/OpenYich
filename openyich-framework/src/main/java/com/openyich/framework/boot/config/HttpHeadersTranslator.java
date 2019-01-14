@@ -33,11 +33,11 @@ public class HttpHeadersTranslator implements WebMvcConfigurer {
       @Override
       public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
           Object handler) throws Exception {
-        Enumeration<String> parameterNames = request.getParameterNames();
+        Enumeration<String> headerNames = request.getHeaderNames();
         HttpHeaders httpHeaders = new HttpHeaders();
-        while (parameterNames.hasMoreElements()) {
-          String headerName = parameterNames.nextElement();
-          String headerValue = request.getParameter(headerName);
+        while (headerNames.hasMoreElements()) {
+          String headerName = headerNames.nextElement();
+          String headerValue = request.getHeader(headerName);
           httpHeaders.add(headerName, headerValue);
         }
         return httpHeadersAware.preHandle(request, response, handler, httpHeaders);

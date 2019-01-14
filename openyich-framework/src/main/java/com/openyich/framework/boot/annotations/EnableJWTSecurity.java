@@ -1,4 +1,4 @@
-package com.openyich.framework.boot.annotation;
+package com.openyich.framework.boot.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

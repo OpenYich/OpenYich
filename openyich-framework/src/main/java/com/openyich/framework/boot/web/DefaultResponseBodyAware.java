@@ -12,6 +12,8 @@ import org.zalando.problem.Problem;
 import com.google.common.base.Strings;
 import com.openyich.framework.boot.aware.ResponseBodyAware;
 import com.openyich.framework.boot.aware.ResponseWordsAware;
+import com.openyich.framework.boot.utils.ThreadLocalUtils;
+import com.openyich.framework.boot.utils.ThreadLocalUtils.RequestHeader;
 import com.openyich.framework.boot.vo.ResponseVO;
 
 @Configuration
@@ -29,7 +31,14 @@ public class DefaultResponseBodyAware extends BaseController implements Response
   public Object handle(Object body, ServerHttpRequest request, ServerHttpResponse response) {
     if (body instanceof Problem) {
       Problem problem = (Problem) body;
-      String code = String.valueOf(problem.getStatus().getStatusCode());
+      RequestHeader requestHeader = ThreadLocalUtils.get();
+
+      // Code
+      String code = requestHeader.hasCode()
+          ? requestHeader.getCode()
+          : String.valueOf(problem.getStatus().getStatusCode());
+
+      // Message
       String message = Strings.isNullOrEmpty(problem.getDetail())
           ? Strings.nullToEmpty(problem.getTitle())
           : Strings.nullToEmpty(problem.getDetail());

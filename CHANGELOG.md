@@ -7,6 +7,7 @@
 - Upgrading Async configuration
 - Optimizing OpenYichProperties
 - Modified Exception classes
+- Add aspectj adapter to Spring AOP framework
 
 ### 2.1.7
 
