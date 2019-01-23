@@ -22,23 +22,15 @@ public class OpenYichProperties {
   
   private final Http http = new Http();
 
-  private final Mail mail = new Mail();
-
   private final Security security = new Security();
 
   private final Swagger swagger = new Swagger();
 
-  private final Metrics metrics = new Metrics();
-
   private final Logging logging = new Logging();
 
-  private final Map<String, CorsConfiguration> cors = Maps.newConcurrentMap();
-
-  private final Social social = new Social();
+  private final Map<String, CorsConfiguration> cors = Maps.newHashMap();
 
   private final Gateway gateway = new Gateway();
-
-  private final Registry registry = new Registry();
 
   public Async getAsync() {
     return async;
@@ -46,10 +38,6 @@ public class OpenYichProperties {
 
   public Http getHttp() {
     return http;
-  }
-
-  public Mail getMail() {
-    return mail;
   }
 
   public Security getSecurity() {
@@ -60,10 +48,6 @@ public class OpenYichProperties {
     return swagger;
   }
 
-  public Metrics getMetrics() {
-    return metrics;
-  }
-
   public Logging getLogging() {
     return logging;
   }
@@ -72,16 +56,8 @@ public class OpenYichProperties {
     return cors;
   }
 
-  public Social getSocial() {
-    return social;
-  }
-
   public Gateway getGateway() {
     return gateway;
-  }
-
-  public Registry getRegistry() {
-    return registry;
   }
 
   public static class Async {
@@ -198,39 +174,6 @@ public class OpenYichProperties {
 
     public void setUseUndertowUserCipherSuitesOrder(boolean useUndertowUserCipherSuitesOrder) {
       this.useUndertowUserCipherSuitesOrder = useUndertowUserCipherSuitesOrder;
-    }
-  }
-
-  public static class Mail {
-
-    private boolean enabled = false;
-
-    private String from = "";
-
-    private String baseUrl = "";
-
-    public boolean isEnabled() {
-      return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-      this.enabled = enabled;
-    }
-
-    public String getFrom() {
-      return from;
-    }
-
-    public void setFrom(String from) {
-      this.from = from;
-    }
-
-    public String getBaseUrl() {
-      return baseUrl;
-    }
-
-    public void setBaseUrl(String baseUrl) {
-      this.baseUrl = baseUrl;
     }
   }
 
@@ -509,86 +452,6 @@ public class OpenYichProperties {
     }
   }
 
-  public static class Metrics {
-
-    private final Jmx jmx = new Jmx();
-
-    private final Logs logs = new Logs();
-
-    private final Prometheus prometheus = new Prometheus();
-
-    public Jmx getJmx() {
-      return jmx;
-    }
-
-    public Logs getLogs() {
-      return logs;
-    }
-
-    public Prometheus getPrometheus() {
-      return prometheus;
-    }
-
-    public static class Jmx {
-
-      private boolean enabled = true;
-
-      public boolean isEnabled() {
-        return enabled;
-      }
-
-      public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-      }
-    }
-
-    public static class Logs {
-
-      private boolean enabled = false;
-
-      private long reportFrequency = 60;
-
-      public boolean isEnabled() {
-        return enabled;
-      }
-
-      public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-      }
-
-      public long getReportFrequency() {
-        return reportFrequency;
-      }
-
-      public void setReportFrequency(long reportFrequency) {
-        this.reportFrequency = reportFrequency;
-      }
-    }
-
-    public static class Prometheus {
-
-      private boolean enabled = false;
-
-      private String endpoint = "/prometheusMetrics";
-
-      public boolean isEnabled() {
-        return enabled;
-      }
-
-      public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-      }
-
-      public String getEndpoint() {
-        return endpoint;
-      }
-
-      public void setEndpoint(String endpoint) {
-        this.endpoint = endpoint;
-      }
-    }
-  }
-
   public static class Logging {
 
     private String path = ".";
@@ -643,19 +506,6 @@ public class OpenYichProperties {
     
   }
 
-  public static class Social {
-
-    private String redirectAfterSignIn = "/#/home";
-
-    public String getRedirectAfterSignIn() {
-      return redirectAfterSignIn;
-    }
-
-    public void setRedirectAfterSignIn(String redirectAfterSignIn) {
-      this.redirectAfterSignIn = redirectAfterSignIn;
-    }
-  }
-
   public static class Gateway {
 
     private final RateLimiting rateLimiting = new RateLimiting();
@@ -706,19 +556,6 @@ public class OpenYichProperties {
       public void setDurationInSeconds(int durationInSeconds) {
         this.durationInSeconds = durationInSeconds;
       }
-    }
-  }
-
-  public static class Registry {
-
-    private String password = null;
-
-    public String getPassword() {
-      return password;
-    }
-
-    public void setPassword(String password) {
-      this.password = password;
     }
   }
 

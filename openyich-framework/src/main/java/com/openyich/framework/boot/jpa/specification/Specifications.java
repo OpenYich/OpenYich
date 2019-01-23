@@ -5,11 +5,11 @@ import static javax.persistence.criteria.Predicate.BooleanOperator.OR;
 
 public class Specifications {
 
-  public static <T> PredicateBuilder<T> and() {
+  public static <T> PredicateBuilder<T> and(Class<T> clazz) {
     return new PredicateBuilder<>(AND);
   }
 
-  public static <T> PredicateBuilder<T> or() {
+  public static <T> PredicateBuilder<T> or(Class<T> clazz) {
     return new PredicateBuilder<>(OR);
   }
   

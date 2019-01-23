@@ -1,5 +1,14 @@
 ## Changelog
 
+### 2.1.8 
+
+- Add common query value object
+- Upgrading Specifications
+- Upgrading Async configuration
+- Optimizing OpenYichProperties
+- Modified Exception classes
+- Add aspectj adapter to Spring AOP framework
+
 ### 2.1.7
 
 - Enhanced global exception handler

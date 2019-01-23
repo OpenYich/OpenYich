@@ -5,6 +5,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+import com.openyich.framework.boot.config.AspectJConfiguration;
 import com.openyich.framework.boot.config.AsyncConfiguration;
 import com.openyich.framework.boot.config.DateTimeFormatConfiguration;
 import com.openyich.framework.boot.config.ExceptionTranslator;
@@ -17,9 +18,8 @@ import com.openyich.framework.boot.config.WebConfigurer;
 import com.openyich.framework.boot.hazelcast.HazelcastCacheConfiguration;
 import com.openyich.framework.boot.security.ssl.UndertowSSLConfiguration;
 import com.openyich.framework.boot.security.uaa.UaaConfiguration;
-import com.openyich.framework.boot.web.DefaultHttpHeadersAware;
+import com.openyich.framework.boot.web.DefaultRequestBodyAware;
 import com.openyich.framework.boot.web.DefaultResponseBodyAware;
-import com.openyich.framework.boot.web.DefaultResponseWordsAware;
 
 /**
  * OpenYich Auto-configuration
@@ -28,11 +28,11 @@ import com.openyich.framework.boot.web.DefaultResponseWordsAware;
 @ConditionalOnWebApplication
 @EnableConfigurationProperties({OpenYichProperties.class})
 @Import({
+  AspectJConfiguration.class,
   AsyncConfiguration.class, 
   DateTimeFormatConfiguration.class,
-  DefaultHttpHeadersAware.class,
+  DefaultRequestBodyAware.class,
   DefaultResponseBodyAware.class,
-  DefaultResponseWordsAware.class,
   ExceptionTranslator.class,
   HazelcastCacheConfiguration.class,
   HttpHeadersTranslator.class,

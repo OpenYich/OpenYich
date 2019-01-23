@@ -13,16 +13,16 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import com.openyich.framework.boot.aware.HttpHeadersAware;
+import com.openyich.framework.boot.aware.RequestBodyAware;
 
 @Configuration
 @ConditionalOnWebApplication
-@ConditionalOnBean(HttpHeadersAware.class)
+@ConditionalOnBean(RequestBodyAware.class)
 public class HttpHeadersTranslator implements WebMvcConfigurer {
 
-  private HttpHeadersAware httpHeadersAware;
+  private RequestBodyAware httpHeadersAware;
 
-  public HttpHeadersTranslator(HttpHeadersAware httpHeadersAware) {
+  public HttpHeadersTranslator(RequestBodyAware httpHeadersAware) {
     this.httpHeadersAware = httpHeadersAware;
   }
 
@@ -33,11 +33,11 @@ public class HttpHeadersTranslator implements WebMvcConfigurer {
       @Override
       public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
           Object handler) throws Exception {
-        Enumeration<String> parameterNames = request.getParameterNames();
+        Enumeration<String> headerNames = request.getHeaderNames();
         HttpHeaders httpHeaders = new HttpHeaders();
-        while (parameterNames.hasMoreElements()) {
-          String headerName = parameterNames.nextElement();
-          String headerValue = request.getParameter(headerName);
+        while (headerNames.hasMoreElements()) {
+          String headerName = headerNames.nextElement();
+          String headerValue = request.getHeader(headerName);
           httpHeaders.add(headerName, headerValue);
         }
         return httpHeadersAware.preHandle(request, response, handler, httpHeaders);

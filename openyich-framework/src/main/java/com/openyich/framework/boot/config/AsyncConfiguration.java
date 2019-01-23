@@ -1,7 +1,5 @@
 package com.openyich.framework.boot.config;
 
-import java.util.concurrent.Executors;
-
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
@@ -12,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.openyich.framework.boot.async.OpenYichAsyncConfigurer;
 import com.openyich.framework.boot.async.OpenYichAsyncTaskExecutor;
-import com.openyich.framework.boot.async.OpenYichExecutor;
+import com.openyich.framework.boot.async.OpenYichTaskExecutor;
 import com.openyich.framework.boot.async.OpenYichSchedulingConfigurer;
 import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
 
@@ -40,21 +38,21 @@ public class AsyncConfiguration {
 
   @Bean
   @ConditionalOnMissingBean
-  public OpenYichAsyncTaskExecutor asyncTaskExecutor() {
-    return new OpenYichAsyncTaskExecutor(asyncConfigurer().create());
-  }
-
-  @Bean
-  @ConditionalOnMissingBean
   public OpenYichSchedulingConfigurer schedulingConfigurer() {
     return new OpenYichSchedulingConfigurer(openYichProperties);
   }
 
   @Bean
   @ConditionalOnMissingBean
-  public OpenYichExecutor openYichExecutor() {
-    return new OpenYichExecutor(asyncTaskExecutor(),
-        Executors.newScheduledThreadPool(openYichProperties.getAsync().getCorePoolSize()));
+  public OpenYichAsyncTaskExecutor asyncTaskExecutor() {
+    return new OpenYichAsyncTaskExecutor(asyncConfigurer().create());
+  }
+
+  @Bean
+  @ConditionalOnMissingBean
+  public OpenYichTaskExecutor taskExecutor() {
+    return new OpenYichTaskExecutor(asyncTaskExecutor(),
+        schedulingConfigurer().scheduledTaskExecutor());
   }
 
 }

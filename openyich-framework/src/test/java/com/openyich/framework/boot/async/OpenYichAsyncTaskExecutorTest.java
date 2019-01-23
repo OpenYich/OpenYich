@@ -28,7 +28,7 @@ public class OpenYichAsyncTaskExecutorTest {
   private static final int testResult = 42;
 
   private boolean done;
-  private Exception handled;
+  private Throwable handled;
   private MockAsyncTaskExecutor task;
   private OpenYichAsyncTaskExecutor executor;
   private LogbackRecorder recorder;
@@ -209,10 +209,10 @@ public class OpenYichAsyncTaskExecutorTest {
     }
 
     @Override
-    protected void handle(Exception exception) {
+    protected void handle(Throwable e) {
       synchronized (executor) {
-        handled = exception;
-        super.handle(exception);
+        handled = e;
+        super.handle(e);
         executor.notifyAll();
       }
     }

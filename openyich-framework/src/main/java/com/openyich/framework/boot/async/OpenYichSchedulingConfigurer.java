@@ -1,7 +1,7 @@
 package com.openyich.framework.boot.async;
 
-import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -15,10 +15,10 @@ import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
  */
 public class OpenYichSchedulingConfigurer implements SchedulingConfigurer {
 
-  private OpenYichProperties.Async properties;
+  private OpenYichProperties.Async asyncProperties;
 
   public OpenYichSchedulingConfigurer(OpenYichProperties openYichProperties) {
-    this.properties = openYichProperties.getAsync();
+    this.asyncProperties = openYichProperties.getAsync();
   }
 
   @Override
@@ -28,8 +28,9 @@ public class OpenYichSchedulingConfigurer implements SchedulingConfigurer {
 
   @Bean
   @Qualifier("scheduledTaskExecutor")
-  public Executor scheduledTaskExecutor() {
-    return Executors.newScheduledThreadPool(properties.getCorePoolSize());
+  public ScheduledExecutorService scheduledTaskExecutor() {
+    int corePoolSize = asyncProperties.getCorePoolSize();
+    return Executors.newScheduledThreadPool(corePoolSize);
   }
 
 }
