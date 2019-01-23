@@ -5,6 +5,12 @@ import org.springframework.http.server.ServerHttpResponse;
 
 public interface ResponseBodyAware {
 
-  Object handle(Object body, ServerHttpRequest request, ServerHttpResponse response);
+  default Object handle(Object body, ServerHttpRequest request, ServerHttpResponse response) {
+    return body;
+  }
+
+  default String handleMessageConverter(String code, String message) {
+    return message;
+  }
 
 }

@@ -1,4 +1,4 @@
-package com.openyich.framework.boot.vo;
+package com.openyich.framework.boot.json;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -9,11 +9,12 @@ import org.springframework.lang.Nullable;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Maps;
+import com.openyich.framework.boot.web.AbstractController;
 
 /**
  * Base class for Spring MVC Response types.
  */
-public class ResponseVO<T> implements Serializable {
+public class JSONResponse<T> extends AbstractController implements Serializable {
 
   private static final long serialVersionUID = 1L;
 

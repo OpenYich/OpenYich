@@ -19,71 +19,72 @@ import com.google.common.base.Throwables;
 import com.google.common.collect.Maps;
 
 @API(status = STABLE)
-public class OpenYichProblemException extends AbstractThrowableProblem {
+public class OpenYichThrowableProblem extends AbstractThrowableProblem {
 
   private static final long serialVersionUID = 1L;
   protected static final String PARAM = "param";
   private final String code;
 
-  public OpenYichProblemException(String code) {
+  public OpenYichThrowableProblem(String code) {
     this(code, "");
   }
 
-  public OpenYichProblemException(String code, String message) {
+  public OpenYichThrowableProblem(String code, String message) {
     this(code, message, null, Maps.newHashMap());
   }
 
-  public OpenYichProblemException(String code, Throwable cause) {
+  public OpenYichThrowableProblem(String code, Throwable cause) {
     this(code, null, cause, Maps.newHashMap());
   }
 
-  public OpenYichProblemException(String code, String message, String... params) {
+  public OpenYichThrowableProblem(String code, String message, String... params) {
     this(code, message, null, toParamMap(params));
   }
 
-  public OpenYichProblemException(String code, String message, Map<String, Object> parameters) {
+  public OpenYichThrowableProblem(String code, String message, Map<String, Object> parameters) {
     this(code, message, null, parameters);
   }
 
-  public OpenYichProblemException(String code, String message, Throwable cause, String... params) {
+  public OpenYichThrowableProblem(String code, String message, Throwable cause, String... params) {
     this(code, message, cause, toParamMap(params));
   }
 
-  public OpenYichProblemException(String code, String message, Throwable cause,
+  public OpenYichThrowableProblem(String code, String message, Throwable cause,
       Map<String, Object> parameters) {
     this(code, Status.INTERNAL_SERVER_ERROR, message, cause, parameters);
   }
 
-  public OpenYichProblemException(String code, Status status) {
+  public OpenYichThrowableProblem(String code, Status status) {
     this(code, status, "");
   }
 
-  public OpenYichProblemException(String code, Status status, String message) {
+  public OpenYichThrowableProblem(String code, Status status, String message) {
     this(code, status, message, null, Maps.newHashMap());
   }
 
-  public OpenYichProblemException(String code, Status status, Throwable cause) {
+  public OpenYichThrowableProblem(String code, Status status, Throwable cause) {
     this(code, status, null, cause, Maps.newHashMap());
   }
 
-  public OpenYichProblemException(String code, Status status, String message, String... params) {
+  public OpenYichThrowableProblem(String code, Status status, String message, String... params) {
     this(code, status, message, null, toParamMap(params));
   }
 
-  public OpenYichProblemException(String code, Status status, String message,
+  public OpenYichThrowableProblem(String code, Status status, String message,
       Map<String, Object> parameters) {
     this(code, status, message, null, parameters);
   }
 
-  public OpenYichProblemException(String code, Status status, String message, Throwable cause,
+  public OpenYichThrowableProblem(String code, Status status, String message, Throwable cause,
       String... params) {
     this(code, status, message, cause, toParamMap(params));
   }
 
-  public OpenYichProblemException(String code, Status status, String message, Throwable cause,
+  public OpenYichThrowableProblem(String code, Status status, String message, Throwable cause,
       Map<String, Object> parameters) {
-    super(null, null, status, toMessage(message, status), null,
-        toProblem(cause, status), toProblemParameters(toMessage(message, status), parameters));
+    super(null, null, status, toMessage(message, status), null, toProblem(cause, status),
+        toProblemParameters(toMessage(message, status), parameters));
+    ProblemUtils.setCode(code); // ThreadLocal
     this.code = code;
   }
 

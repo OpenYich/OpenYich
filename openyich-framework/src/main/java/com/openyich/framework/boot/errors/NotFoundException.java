@@ -8,7 +8,7 @@ import org.apiguardian.api.API;
 import org.zalando.problem.Status;
 
 @API(status = STABLE)
-public class NotFoundException extends OpenYichProblemException {
+public class NotFoundException extends OpenYichThrowableProblem {
 
   private static final long serialVersionUID = 1L;
 

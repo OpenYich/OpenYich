@@ -8,7 +8,7 @@ import org.apiguardian.api.API;
 import org.zalando.problem.Status;
 
 @API(status = STABLE)
-public class InvalidParametersException extends OpenYichProblemException {
+public class InvalidParametersException extends OpenYichThrowableProblem {
 
   private static final long serialVersionUID = 1L;
 

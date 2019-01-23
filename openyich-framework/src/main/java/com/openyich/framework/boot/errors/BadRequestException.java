@@ -8,7 +8,7 @@ import org.apiguardian.api.API;
 import org.zalando.problem.Status;
 
 @API(status = STABLE)
-public class BadRequestException extends OpenYichProblemException {
+public class BadRequestException extends OpenYichThrowableProblem {
 
   private static final long serialVersionUID = 1L;
 

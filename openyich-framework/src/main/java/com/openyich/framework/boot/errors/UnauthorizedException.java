@@ -8,7 +8,7 @@ import org.apiguardian.api.API;
 import org.zalando.problem.Status;
 
 @API(status = STABLE)
-public class UnauthorizedException extends OpenYichProblemException {
+public class UnauthorizedException extends OpenYichThrowableProblem {
 
   private static final long serialVersionUID = 1L;
 

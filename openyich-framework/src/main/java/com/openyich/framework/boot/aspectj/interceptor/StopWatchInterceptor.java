@@ -16,7 +16,6 @@ import com.google.common.base.Throwables;
 import com.openyich.framework.boot.aspectj.AbstractAdviceAdapter;
 import com.openyich.framework.boot.aspectj.AfterAdviceAdapter;
 import com.openyich.framework.boot.aspectj.BeforeAdviceAdapter;
-import com.openyich.framework.boot.utils.ThreadLocalUtils;
 
 @Aspect
 @Component
@@ -41,10 +40,9 @@ public class StopWatchInterceptor extends AbstractAdviceAdapter
       com.openyich.framework.boot.aspectj.lang.StopWatch sw =
           method.getAnnotation(com.openyich.framework.boot.aspectj.lang.StopWatch.class);
       if (sw != null) {
-        String value = sw.value();
         StopWatch stopWatch = TL.get();
         stopWatch.stop();
-        log.info("{}[URI={}]: {}", value, requestURI, stopWatch.shortSummary());
+        log.info("{} [URI={}]: {}", sw.value(), requestURI, stopWatch.shortSummary());
       }
     } catch (Exception e) {
       log.warn("StopWatch after exception: URI={}, Cause={}", requestURI,
@@ -61,8 +59,7 @@ public class StopWatchInterceptor extends AbstractAdviceAdapter
       com.openyich.framework.boot.aspectj.lang.StopWatch sw =
           method.getAnnotation(com.openyich.framework.boot.aspectj.lang.StopWatch.class);
       if (sw != null) {
-        String id = ThreadLocalUtils.get().getRequestId();
-        StopWatch stopWatch = new StopWatch(id);
+        StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         TL.set(stopWatch);
       }

@@ -1,4 +1,4 @@
-package com.openyich.framework.boot.vo;
+package com.openyich.framework.boot.json;
 
 import java.io.Serializable;
 
@@ -13,9 +13,9 @@ import com.openyich.framework.boot.jpa.specification.Pageables;
 import com.openyich.framework.boot.jpa.specification.Sorts;
 
 /**
- * Base class for Spring MVC Query request.
+ * Base class for Spring MVC Query Request types.
  */
-public class QueryVO implements Serializable {
+public class JSONQuery implements Serializable {
 
   private static final long serialVersionUID = 1L;
 

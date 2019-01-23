@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
 
-import com.openyich.framework.boot.aspectj.interceptor.ExceptionHandlerInterceptor;
 import com.openyich.framework.boot.aspectj.interceptor.StopWatchInterceptor;
 import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
 
@@ -15,8 +14,7 @@ import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
 @EnableAspectJAutoProxy
 @AutoConfigureAfter(OpenYichProperties.class)
 @Import({
-  StopWatchInterceptor.class,
-  ExceptionHandlerInterceptor.class
+  StopWatchInterceptor.class
 })
 public class AspectJConfiguration {
 
