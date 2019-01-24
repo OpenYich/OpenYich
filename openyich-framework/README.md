@@ -23,10 +23,6 @@ Importing the dependency into your Spring Boot Application's pom:
 	<artifactId>spring-boot-starter-data-jpa</artifactId>
 </dependency>
 <dependency>
-	<groupId>com.alibaba</groupId>
-	<artifactId>druid-spring-boot-starter</artifactId>
-</dependency>
-<dependency>
 	<groupId>mysql</groupId>
 	<artifactId>mysql-connector-java</artifactId>
 	<scope>runtime</scope>
@@ -50,18 +46,12 @@ public class OpenyichCMSApplication {
 3\. Add configuration properties: 
 
 ```
+## MySQL Connector/J 6.0.6
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/mysqldb?useUnicode=true&characterEncoding=utf8&useSSL=true&autoReconnect=true&autoReconnectForPools=true&noAccessToProcedureBodies=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mysqldb?useUnicode=true&characterEncoding=utf8&useSSL=true&autoReconnect=true&autoReconnectForPools=true&noAccessToProcedureBodies=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
     username: root
     password: 
-    druid:
-      initial-size: 2
-      min-idle: 8
-      max-active: 8
-      max-wait: 2000
-      validation-query: select 'x'
-      validation-query-timeout: 1
-      keep-alive: true
 ```
 
