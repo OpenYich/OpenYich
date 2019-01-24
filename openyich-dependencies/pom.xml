@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>com.github.zhycn</groupId>
 		<artifactId>openyich-parent</artifactId>
-		<version>2.1.9-SNAPSHOT</version>
+		<version>2.1.9</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
