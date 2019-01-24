@@ -3,9 +3,9 @@
 This project provides a pom file that you can either import into your Spring Boot Application's bom, or use as your Spring Boot Application's parent pom. 
 
 - JDK 8+
-- Spring Boot 2.1.1.RELEASE
-- Spring Cloud Finchley.SR2
-- Spring IO Platform Cairo-SR5
+- Spring Boot 2.1.2.RELEASE
+- Spring Cloud Greenwich.RELEASE
+- Spring IO Platform Cairo-SR6
 
 ## Quick Start
 
@@ -17,7 +17,7 @@ The OpenYich BOM uses Maven's support for dependency management to provide depen
         <dependency>
             <groupId>com.github.zhycn</groupId>
             <artifactId>openyich-dependencies</artifactId>
-            <version>2.1.8</version>
+            <version>2.1.9-SNAPSHOT</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
@@ -31,7 +31,7 @@ Alternatively, rather than importing the OpenYich BOM, you may prefer to use it 
 <parent>
     <groupId>com.github.zhycn</groupId>
     <artifactId>openyich-dependencies</artifactId>
-    <version>2.1.8</version>
+    <version>2.1.9-SNAPSHOT</version>
     <relativePath/>
 </parent>
 ```

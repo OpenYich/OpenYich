@@ -1,5 +1,14 @@
 ## Changelog
 
+### 2.1.9
+
+- Upgrading Spring IO Platform to vCairo-SR6
+- Upgrading Spring Boot to 2.1.2.RELEASE
+- Upgrading Spring Boot Admin to 2.1.2
+- Upgrading Spring Cloud to Greenwich.RELEASE
+- Upgrading Hutool to 4.4.2
+- Upgrading MySQL Connector/J to 6.0.6
+
 ### 2.1.8 
 
 - Add common query value object
