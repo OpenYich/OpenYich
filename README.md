@@ -17,7 +17,7 @@ The OpenYich BOM uses Maven's support for dependency management to provide depen
         <dependency>
             <groupId>com.github.zhycn</groupId>
             <artifactId>openyich-dependencies</artifactId>
-            <version>2.1.8</version>
+            <version>2.1.9-SNAPSHOT</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
@@ -31,7 +31,7 @@ Alternatively, rather than importing the OpenYich BOM, you may prefer to use it 
 <parent>
     <groupId>com.github.zhycn</groupId>
     <artifactId>openyich-dependencies</artifactId>
-    <version>2.1.8</version>
+    <version>2.1.9-SNAPSHOT</version>
     <relativePath/>
 </parent>
 ```
