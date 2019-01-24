@@ -3,9 +3,9 @@
 This project provides a pom file that you can either import into your Spring Boot Application's bom, or use as your Spring Boot Application's parent pom. 
 
 - JDK 8+
-- Spring Boot 2.1.1.RELEASE
-- Spring Cloud Finchley.SR2
-- Spring IO Platform Cairo-SR5
+- Spring Boot 2.1.2.RELEASE
+- Spring Cloud Greenwich.RELEASE
+- Spring IO Platform Cairo-SR6
 
 ## Quick Start
 
