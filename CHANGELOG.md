@@ -1,5 +1,9 @@
 ## Changelog
 
+### 2.1.10
+
+- Add JSONSerializable supports
+
 ### 2.1.9
 
 - Upgrading Spring IO Platform to vCairo-SR6
