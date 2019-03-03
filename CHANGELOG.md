@@ -3,6 +3,8 @@
 ### 2.1.10
 
 - Add JSONSerializable supports
+- Rebuild Spring MVC Query Request types
+- Add data masking
 
 ### 2.1.9
 
