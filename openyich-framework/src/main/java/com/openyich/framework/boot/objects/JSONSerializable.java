@@ -9,5 +9,5 @@ public interface JSONSerializable extends Serializable {
   default String toJSONString() {
     return JSON.toJSONString(this);
   }
-
+  
 }

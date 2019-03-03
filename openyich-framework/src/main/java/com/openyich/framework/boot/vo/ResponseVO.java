@@ -1,20 +1,19 @@
-package com.openyich.framework.boot.json;
+package com.openyich.framework.boot.vo;
 
-import java.io.Serializable;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.lang.Nullable;
 
-import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Maps;
+import com.openyich.framework.boot.objects.JSONSerializable;
 import com.openyich.framework.boot.web.AbstractController;
 
 /**
  * Base class for Spring MVC Response types.
  */
-public class JSONResponse<T> extends AbstractController implements Serializable {
+public class ResponseVO<T> extends AbstractController implements JSONSerializable {
 
   private static final long serialVersionUID = 1L;
 
@@ -75,11 +74,6 @@ public class JSONResponse<T> extends AbstractController implements Serializable 
 
   public void setMessage(String message) {
     this.message = message;
-  }
-
-  @Override
-  public String toString() {
-    return JSON.toJSONString(this);
   }
 
 }
