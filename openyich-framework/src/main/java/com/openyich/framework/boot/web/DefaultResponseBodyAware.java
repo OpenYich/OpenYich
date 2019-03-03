@@ -14,7 +14,7 @@ import com.google.common.base.Strings;
 import com.google.common.collect.Maps;
 import com.openyich.framework.boot.aware.ResponseBodyAware;
 import com.openyich.framework.boot.errors.ProblemUtils;
-import com.openyich.framework.boot.json.JSONResponse;
+import com.openyich.framework.boot.vo.ResponseVO;
 
 @Configuration
 @ConditionalOnWebApplication
@@ -23,11 +23,11 @@ public class DefaultResponseBodyAware extends AbstractController implements Resp
 
   @Override
   public Object handle(Object body, ServerHttpRequest request, ServerHttpResponse response) {
-    
+
     // Handle Problem Exception
     if (body instanceof Problem) {
       Problem problem = (Problem) body;
-      
+
       // Code
       String errorCode = ProblemUtils.getCode();
       String code = !Strings.isNullOrEmpty(errorCode)
@@ -41,28 +41,28 @@ public class DefaultResponseBodyAware extends AbstractController implements Resp
       return handleMessageConverter(builder(code, message));
     }
 
-    // Handle JSONResponse
-    if (body instanceof JSONResponse) {
-      JSONResponse<?> res = (JSONResponse<?>) body;
+    // Handle ResponseVO
+    if (body instanceof ResponseVO) {
+      ResponseVO<?> res = (ResponseVO<?>) body;
       response.getHeaders().addAll(res.getHeaders());
       return handleMessageConverter(res);
     }
 
     return body;
   }
-  
-  private JSONResponse<?> handleMessageConverter(JSONResponse<?> res) {
+
+  private ResponseVO<?> handleMessageConverter(ResponseVO<?> res) {
     String message = handleMessageConverter(res.getCode(), res.getMessage());
     res.setMessage(message);
 
     if (Objects.isNull(res.getData())) {
-      JSONResponse<Map<String, Object>> newRes = new JSONResponse<>();
-      newRes.setCode(res.getCode());
-      newRes.setMessage(res.getMessage());
-      newRes.setExtData(res.getExtData());
-      newRes.setHeaders(res.getHeaders());
-      newRes.setData(Maps.newConcurrentMap());
-      return newRes;
+      ResponseVO<Map<String, Object>> vo = new ResponseVO<>();
+      vo.setCode(res.getCode());
+      vo.setMessage(res.getMessage());
+      vo.setExtData(res.getExtData());
+      vo.setHeaders(res.getHeaders());
+      vo.setData(Maps.newConcurrentMap());
+      return vo;
     }
 
     return res;
