@@ -1,5 +1,11 @@
 ## Changelog
 
+### 2.1.11
+
+- Upgrading Spring IO Platform to vCairo-SR7
+- Upgrading Spring Boot to 2.1.3.RELEASE
+- Upgrading Spring Boot Admin to 2.1.3
+
 ### 2.1.10
 
 - Add JSONSerializable supports
