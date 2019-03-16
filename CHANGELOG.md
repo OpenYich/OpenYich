@@ -3,6 +3,7 @@
 ### 2.1.12
 
 - Upgrading JWT Security configuration
+- Enhanced Swagger support to add authorization header
 
 ### 2.1.11
 

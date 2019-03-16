@@ -17,14 +17,14 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.spring.web.plugins.Docket;
 
 /**
- * Customize the Springfox Docket.
+ * Basic Customize the Springfox Docket.
  */
 @Order(0)
-public class OpenYichSwaggerCustomizer implements SwaggerCustomizer {
+public class BasicSwaggerCustomizer implements SwaggerCustomizer {
 
   private OpenYichProperties.Swagger properties;
 
-  public OpenYichSwaggerCustomizer(OpenYichProperties.Swagger properties) {
+  public BasicSwaggerCustomizer(OpenYichProperties.Swagger properties) {
     this.properties = properties;
   }
 
