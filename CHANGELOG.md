@@ -1,5 +1,9 @@
 ## Changelog
 
+### 2.1.12
+
+- Upgrading JWT Security configuration
+
 ### 2.1.11
 
 - Upgrading Spring IO Platform to vCairo-SR7
