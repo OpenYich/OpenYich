@@ -20,7 +20,8 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 import com.openyich.framework.boot.autoconfigure.OpenYichConstants;
 import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
-import com.openyich.framework.boot.swagger.OpenYichSwaggerCustomizer;
+import com.openyich.framework.boot.swagger.AuthorizationSwaggerCustomizer;
+import com.openyich.framework.boot.swagger.BasicSwaggerCustomizer;
 import com.openyich.framework.boot.swagger.SwaggerCustomizer;
 
 import springfox.documentation.schema.AlternateTypeRule;
@@ -88,13 +89,23 @@ public class SwaggerConfiguration {
   }
 
   /**
-   * OpenYich Swagger Customizer
+   * Basic Swagger Customizer
    *
-   * @return the Swagger Customizer of OpenYich
+   * @return the Swagger Customizer of Basic
    */
   @Bean
-  public OpenYichSwaggerCustomizer swaggerCustomizer() {
-    return new OpenYichSwaggerCustomizer(properties);
+  public BasicSwaggerCustomizer basicSwaggerCustomizer() {
+    return new BasicSwaggerCustomizer(properties);
+  }
+  
+  /**
+   * Authorization Swagger Customizer
+   *
+   * @return the Swagger Customizer of Authorization
+   */
+  @Bean
+  public AuthorizationSwaggerCustomizer authorizationSwaggerCustomizer() {
+    return new AuthorizationSwaggerCustomizer(properties);
   }
 
   protected Docket createDocket() {

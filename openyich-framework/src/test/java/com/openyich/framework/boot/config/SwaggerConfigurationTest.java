@@ -28,7 +28,7 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
 import com.openyich.framework.boot.autoconfigure.OpenYichProperties;
 import com.openyich.framework.boot.autoconfigure.OpenYichProperties.Swagger;
-import com.openyich.framework.boot.swagger.OpenYichSwaggerCustomizer;
+import com.openyich.framework.boot.swagger.BasicSwaggerCustomizer;
 import com.openyich.framework.boot.swagger.SwaggerCustomizer;
 import com.openyich.framework.boot.test.LogbackRecorder;
 import com.openyich.framework.boot.test.LogbackRecorder.Event;
@@ -89,7 +89,7 @@ public class SwaggerConfigurationTest {
   @Test
   public void testSwaggerSpringfoxApiDocket() {
     List<SwaggerCustomizer> customizers =
-        Lists.newArrayList(new OpenYichSwaggerCustomizer(properties));
+        Lists.newArrayList(new BasicSwaggerCustomizer(properties));
     Docket docket = config.swaggerSpringfoxApiDocket(customizers, new NullProvider<>());
 
     verify(docket, never()).groupName(anyString());
