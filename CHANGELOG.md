@@ -4,6 +4,8 @@
 
 - Upgrading JWT Security configuration
 - Enhanced Swagger support to add authorization header
+- Integrating Distributed Identity
+- Upgrading Spring Boot to 2.1.4.RELEASE
 
 ### 2.1.11
 
